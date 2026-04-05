@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vāyu Travels – Bespoke India travel experiences, curated with care.">
+<title>Vāyu Travels | India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&family=Noto+Sans+SC:wght@300;400&family=Noto+Sans+Arabic:wght@300;400&family=Noto+Sans+Devanagari:wght@300;400&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand:#f5f0e8;--ivory:#fdfaf5;--clay:#c4795a;--spice:#a0522d;
+  --ink:#1a1612;--mist:#8a8178;--nav-h:72px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'DM Sans',sans-serif;--r:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:var(--ivory);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+[dir="rtl"]{text-align:right;}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);transition:background .35s var(--ease),box-shadow .35s var(--ease);background:transparent;}
+#nav.scrolled{background:rgba(253,250,245,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(0,0,0,.08);}
+#nav .brand{font-family:var(--font-serif);font-size:1.55rem;font-weight:600;letter-spacing:.02em;color:var(--ivory);transition:color .3s;}
+#nav.scrolled .brand{color:var(--ink);}
+#nav .nav-links{display:flex;gap:1.8rem;align-items:center;list-style:none;}
+#nav .nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);transition:color .25s;position:relative;}
+#nav.scrolled .nav-links a{color:var(--mist);}
+#nav .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--clay);transform:scaleX(0);transition:transform .25s var(--ease);}
+#nav .nav-links a:hover::after,#nav .nav-links a.active::after{transform:scaleX(1);}
+#nav .nav-links a:hover,#nav .nav-links a.active{color:var(--clay)!important;}
+.nav-book-btn{padding:.45rem 1.1rem;background:var(--clay);color:#fff!important;border-radius:20px;font-size:.78rem!important;letter-spacing:.06em;transition:background .2s,transform .2s!important;}
+.nav-book-btn:hover{background:var(--spice)!important;transform:translateY(-1px);}
+.nav-book-btn::after{display:none!important;}
+
+/* Lang picker */
+.lang-picker{position:relative;display:flex;align-items:center;}
+.lang-btn{display:flex;align-items:center;gap:.35rem;padding:.3rem .7rem;border-radius:20px;border:1px solid rgba(255,255,255,.3);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(255,255,255,.08);transition:all .25s;}
+#nav.scrolled .lang-btn{border-color:rgba(0,0,0,.15);color:var(--mist);background:transparent;}
+.lang-btn:hover{border-color:var(--clay);color:var(--clay);}
+.lang-btn svg{width:14px;height:14px;fill:currentColor;}
+.lang-dropdown{position:absolute;top:calc(100% + 10px);right:0;background:var(--ivory);border:1px solid rgba(0,0,0,.1);border-radius:var(--r);box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:190px;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .2s var(--ease);z-index:200;max-height:380px;overflow-y:auto;}
+.lang-picker.open .lang-dropdown{opacity:1;pointer-events:all;transform:translateY(0);}
+.lang-option{display:flex;align-items:center;gap:.7rem;padding:.65rem 1rem;font-size:.82rem;color:var(--mist);transition:background .15s;cursor:pointer;}
+.lang-option:hover{background:var(--sand);color:var(--ink);}
+.lang-option.active{color:var(--clay);font-weight:500;}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:1100;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ivory);transition:all .3s var(--ease);}
+#nav.scrolled .hamburger span{background:var(--ink);}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:var(--ivory);padding:100px 40px 40px;flex-direction:column;gap:1.5rem;transform:translateX(100%);transition:transform .35s var(--ease);}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--ink);border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:1rem;}
+.mobile-menu a:hover{color:var(--clay);}
+
+/* ── PAGES ── */
+.page{display:none;animation:fadeIn .45s var(--ease);}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ── HERO ── */
+.hero{position:relative;height:100svh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-slides{position:absolute;inset:0;}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s var(--ease);background-size:cover;background-position:center;}
+.hero-slide.active{opacity:1;}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(0,0,0,.55) 100%);}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 clamp(20px,8vw,120px);max-width:900px;}
+.hero-eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1.2rem;animation:slideUp .8s .2s both var(--ease);}
+.hero-title{font-family:var(--font-serif);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:300;line-height:1.08;color:#fff;margin-bottom:1.4rem;animation:slideUp .8s .35s both var(--ease);}
+.hero-title em{font-style:italic;color:#f5c99a;}
+.hero-sub{font-size:clamp(.95rem,1.8vw,1.1rem);color:rgba(255,255,255,.8);font-weight:300;max-width:540px;margin:0 auto 2.2rem;animation:slideUp .8s .5s both var(--ease);}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.booking-strip{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;animation:slideUp .8s .65s both var(--ease);}
+.btn-primary{padding:.85rem 2rem;background:var(--clay);color:#fff;border-radius:var(--r);font-size:.85rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:background .25s,transform .2s;box-shadow:0 4px 20px rgba(196,121,90,.4);}
+.btn-primary:hover{background:var(--spice);transform:translateY(-2px);}
+.btn-outline-light{padding:.85rem 2rem;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:var(--r);font-size:.85rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(8px);transition:background .25s,border-color .25s,transform .2s;}
+.btn-outline-light:hover{background:rgba(255,255,255,.22);border-color:#fff;transform:translateY(-2px);}
+.hero-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px;}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);transition:all .3s;cursor:pointer;}
+.hero-dot.active{background:#fff;width:22px;border-radius:3px;}
+
+/* ── SECTIONS ── */
+.section{padding:clamp(60px,10vw,110px) clamp(20px,6vw,100px);}
+.section-label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem;}
+.section-title{font-family:var(--font-serif);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem;max-width:640px;}
+.section-title em{font-style:italic;color:var(--clay);}
+.section-sub{font-size:.95rem;color:var(--mist);font-weight:300;max-width:520px;line-height:1.75;}
+.divider{width:40px;height:2px;background:var(--clay);margin:1.2rem 0;}
+
+/* ── STATS ── */
+.stats-bar{background:var(--ink);padding:clamp(30px,5vw,50px) clamp(20px,6vw,100px);display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-around;align-items:center;}
+.stat{text-align:center;}
+.stat-num{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:#f5c99a;line-height:1;}
+.stat-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.4rem;}
+
+/* ── DEST CARDS (HOME) ── */
+#destinations{background:var(--sand);}
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem;}
+.dest-card{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s;box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.dest-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.2);}
+.dest-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s var(--ease);}
+.dest-card:hover .dest-bg{transform:scale(1.07);}
+.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.1) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.6rem;}
+.dest-tag{display:inline-block;margin-bottom:.8rem;padding:.25rem .8rem;background:var(--clay);border-radius:20px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;align-self:flex-start;}
+.dest-name{font-family:var(--font-serif);font-size:1.6rem;font-weight:400;color:#fff;margin-bottom:.5rem;}
+.dest-blurb{font-size:.82rem;color:rgba(255,255,255,.78);line-height:1.55;}
+.dest-arrow{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .2s;cursor:pointer;}
+.dest-card:hover .dest-arrow{color:var(--clay);}
+
+/* ── DESTINATIONS PAGE ── */
+.dest-page-hero{padding:calc(var(--nav-h) + 50px) clamp(20px,6vw,100px) 40px;background:linear-gradient(135deg,#1a1612 0%,#2d1f17 100%);color:#fff;}
+.dest-page-hero .section-title{color:#fff;max-width:none;}
+.dest-page-hero .section-title em{color:#f5c99a;}
+.dest-page-hero .section-sub{color:rgba(255,255,255,.6);}
+.dest-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:2rem;padding-bottom:2rem;}
+.filter-btn{padding:.5rem 1.3rem;border-radius:30px;border:1px solid rgba(255,255,255,.2);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65);transition:all .2s;background:transparent;}
+.filter-btn:hover,.filter-btn.active{background:var(--clay);color:#fff;border-color:var(--clay);}
+.dest-full-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.8rem;padding:clamp(30px,5vw,60px) clamp(20px,6vw,100px);}
+.dest-full-card{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.08);transition:transform .35s var(--ease),box-shadow .35s;cursor:pointer;}
+.dest-full-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.15);}
+.dest-full-card.hidden{display:none;}
+.dfc-img{height:240px;position:relative;overflow:hidden;}
+.dfc-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s var(--ease);}
+.dest-full-card:hover .dfc-img-bg{transform:scale(1.06);}
+.dfc-badge{position:absolute;top:14px;left:14px;padding:.3rem .9rem;border-radius:20px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;z-index:1;}
+.dfc-rating{position:absolute;bottom:14px;right:14px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:.3rem .7rem;border-radius:20px;font-size:.78rem;color:#fff;display:flex;align-items:center;gap:.3rem;z-index:1;}
+.dfc-body{padding:1.4rem 1.4rem 1rem;}
+.dfc-title{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;margin-bottom:.4rem;}
+.dfc-state{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-bottom:.7rem;}
+.dfc-desc{font-size:.84rem;color:var(--mist);line-height:1.65;font-weight:300;}
+.dfc-footer{padding:.9rem 1.4rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(0,0,0,.05);}
+.dfc-meta{display:flex;gap:1rem;}
+.dfc-meta-item{font-size:.75rem;color:var(--mist);display:flex;align-items:center;gap:.3rem;}
+.btn-sm{padding:.45rem 1.1rem;background:var(--clay);color:#fff;border-radius:var(--r);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;transition:background .2s;}
+.btn-sm:hover{background:var(--spice);}
+
+/* ── DESTINATION DETAIL MODAL ── */
+.dest-modal-overlay{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:20px;}
+.dest-modal-overlay.open{opacity:1;pointer-events:all;}
+.dest-modal{background:var(--ivory);border-radius:20px;width:100%;max-width:820px;max-height:90vh;overflow-y:auto;transform:scale(.95);transition:transform .3s var(--ease);position:relative;}
+.dest-modal-overlay.open .dest-modal{transform:scale(1);}
+.dest-modal-hero{height:320px;position:relative;overflow:hidden;border-radius:20px 20px 0 0;}
+.dest-modal-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.dest-modal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 50%);}
+.dest-modal-title{position:absolute;bottom:1.8rem;left:2rem;z-index:1;font-family:var(--font-serif);font-size:2.5rem;font-weight:300;color:#fff;}
+.dest-modal-title em{font-style:italic;color:#f5c99a;display:block;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.3rem;}
+.dest-modal-body{padding:2rem;}
+.dest-modal-desc{font-size:.95rem;color:var(--mist);line-height:1.8;font-weight:300;margin-bottom:1.8rem;}
+.dest-modal-highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem;}
+.dhl-card{background:var(--sand);border-radius:10px;padding:1.1rem;text-align:center;}
+.dhl-icon{font-size:1.6rem;margin-bottom:.4rem;}
+.dhl-label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);}
+.dhl-value{font-family:var(--font-serif);font-size:1rem;color:var(--ink);margin-top:.2rem;}
+.dest-modal-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.4);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;z-index:10;transition:background .2s;}
+.dest-modal-close:hover{background:var(--clay);}
+
+/* ── TESTIMONIALS ── */
+#testimonials{overflow:hidden;}
+.testi-track-wrap{overflow:hidden;position:relative;}
+.testi-track{display:flex;gap:1.5rem;transition:transform .7s var(--ease);}
+.testi-card{flex:0 0 calc((100% - 4.5rem) / 4);max-width:calc((100% - 4.5rem) / 4);min-width:0;background:var(--sand);border-radius:12px;padding:2rem 1.8rem;}
+.testi-quote{font-family:var(--font-serif);font-size:3rem;line-height:1;color:var(--clay);margin-bottom:.5rem;}
+.testi-text{font-size:.9rem;color:var(--ink);line-height:1.75;font-weight:300;margin-bottom:1.5rem;}
+.testi-author{display:flex;align-items:center;gap:.9rem;}
+.testi-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+.testi-avatar img{width:100%;height:100%;object-fit:cover;}
+.testi-name{font-size:.85rem;font-weight:500;}
+.testi-loc{font-size:.75rem;color:var(--mist);}
+.testi-stars{color:var(--clay);font-size:.75rem;letter-spacing:.1em;margin-bottom:.1rem;}
+.testi-controls{display:flex;gap:.8rem;margin-top:2rem;align-items:center;}
+.testi-arrow{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:1rem;color:var(--mist);}
+.testi-arrow:hover{border-color:var(--clay);color:var(--clay);}
+.testi-dots{display:flex;gap:6px;margin-left:auto;}
+.testi-dot-btn{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,.2);transition:all .3s;cursor:pointer;}
+.testi-dot-btn.active{background:var(--clay);width:18px;border-radius:3px;}
+
+/* ── TEAM (ABOUT) ── */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.8rem;margin-top:3rem;}
+.team-card{border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .35s var(--ease),box-shadow .35s;position:relative;cursor:default;}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.14);}
+.team-photo-wrap{position:relative;overflow:hidden;aspect-ratio:3/4;}
+.team-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s var(--ease);}
+.team-card:hover .team-photo-wrap img{transform:scale(1.04);}
+.team-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,22,18,.85) 0%,rgba(26,22,18,.1) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.3rem;opacity:0;transition:opacity .35s;}
+.team-card:hover .team-photo-overlay{opacity:1;}
+.team-bio{font-size:.78rem;color:rgba(255,255,255,.8);line-height:1.6;font-weight:300;}
+.team-info{padding:1.1rem 1.2rem 1.2rem;}
+.team-name{font-family:var(--font-serif);font-size:1.15rem;font-weight:400;}
+.team-role{font-size:.72rem;color:var(--clay);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem;}
+.team-socials{display:flex;gap:.5rem;margin-top:.7rem;}
+.team-social{width:26px;height:26px;border-radius:50%;border:1px solid rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--mist);transition:all .2s;}
+.team-social:hover{border-color:var(--clay);color:var(--clay);}
+
+/* ── ABOUT HERO ── */
+.about-hero{background:var(--ink);color:#fff;padding:calc(var(--nav-h) + 60px) clamp(20px,6vw,100px) 80px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-hero-text .section-label{color:#f5c99a;}
+.about-hero-text .section-title{color:#fff;max-width:none;}
+.about-hero-text .section-sub{color:rgba(255,255,255,.6);max-width:none;}
+.about-hero-img{border-radius:12px;overflow:hidden;aspect-ratio:4/5;position:relative;box-shadow:24px 24px 0 var(--clay);}
+.about-hero-img img{width:100%;height:100%;object-fit:cover;}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:3rem;}
+.value-card{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:2rem 1.6rem;transition:box-shadow .3s,transform .3s;}
+.value-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.1);transform:translateY(-4px);}
+.value-icon{font-size:2rem;margin-bottom:1rem;}
+.value-title{font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin-bottom:.5rem;}
+.value-text{font-size:.85rem;color:var(--mist);line-height:1.7;font-weight:300;}
+
+/* ── SERVICES ── */
+.services-hero{padding:calc(var(--nav-h) + 60px) clamp(20px,6vw,100px) 0;background:linear-gradient(135deg,var(--sand) 0%,var(--ivory) 100%);text-align:center;}
+.services-hero .section-title{margin:0 auto 1rem;max-width:none;}
+.services-hero .section-sub{margin:0 auto;}
+.services-tabs{display:flex;justify-content:center;gap:.5rem;margin-top:2.5rem;flex-wrap:wrap;padding-bottom:clamp(40px,6vw,80px);}
+.tab-btn{padding:.55rem 1.4rem;border-radius:30px;border:1px solid rgba(0,0,0,.15);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);transition:all .2s;}
+.tab-btn.active,.tab-btn:hover{background:var(--clay);color:#fff;border-color:var(--clay);}
+.service-panel{display:none;}
+.service-panel.active{display:block;}
+.service-packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+.pkg-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .3s,box-shadow .3s;background:var(--ivory);}
+.pkg-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.14);}
+.pkg-card.featured{border:2px solid var(--clay);}
+.pkg-img{height:210px;position:relative;overflow:hidden;}
+.pkg-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s var(--ease);}
+.pkg-card:hover .pkg-img-bg{transform:scale(1.05);}
+.pkg-badge{position:absolute;top:12px;left:12px;background:var(--clay);color:#fff;padding:.25rem .75rem;border-radius:20px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;z-index:1;}
+.pkg-body{padding:1.5rem;}
+.pkg-title{font-family:var(--font-serif);font-size:1.3rem;font-weight:400;margin-bottom:.5rem;}
+.pkg-meta{display:flex;gap:1rem;font-size:.78rem;color:var(--mist);margin-bottom:.8rem;}
+.pkg-desc{font-size:.85rem;color:var(--mist);line-height:1.7;font-weight:300;margin-bottom:1.2rem;}
+.pkg-price{font-family:var(--font-serif);font-size:1.5rem;color:var(--clay);}
+.pkg-price span{font-size:.75rem;color:var(--mist);font-family:var(--font-sans);}
+.pkg-footer{padding:1rem 1.5rem;border-top:1px solid rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;}
+.include-list{list-style:none;display:flex;flex-direction:column;gap:.35rem;}
+.include-list li{font-size:.8rem;color:var(--mist);padding-left:1.2rem;position:relative;}
+.include-list li::before{content:'✓';position:absolute;left:0;color:var(--clay);}
+.corp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.corp-card{background:var(--sand);border-radius:12px;padding:2rem 1.6rem;border-left:3px solid var(--clay);}
+.corp-icon{font-size:2rem;margin-bottom:1rem;}
+.corp-title{font-family:var(--font-serif);font-size:1.2rem;margin-bottom:.5rem;}
+.corp-text{font-size:.85rem;color:var(--mist);line-height:1.7;font-weight:300;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:clamp(40px,7vw,80px) clamp(20px,6vw,100px) 30px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.footer-brand{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:.8rem;}
+.footer-tagline{font-size:.85rem;line-height:1.7;font-weight:300;}
+.footer-heading{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.footer-links a{font-size:.85rem;transition:color .2s;}
+.footer-links a:hover{color:var(--clay);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.78rem;}
+.social-links{display:flex;gap:1rem;}
+.social-links a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:all .2s;}
+.social-links a:hover{border-color:var(--clay);color:var(--clay);}
+
+/* ── BOOKING MODAL ── */
+.modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:20px;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--ivory);border-radius:18px;padding:2.5rem;width:100%;max-width:480px;transform:scale(.95);transition:transform .3s var(--ease);max-height:90vh;overflow-y:auto;position:relative;}
+.modal-overlay.open .modal{transform:scale(1);}
+.modal-title{font-family:var(--font-serif);font-size:1.9rem;font-weight:300;margin-bottom:.4rem;}
+.modal-sub{font-size:.85rem;color:var(--mist);margin-bottom:1.8rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem;}
+.form-group label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);}
+.form-group input,.form-group select,.form-group textarea{padding:.7rem 1rem;border:1px solid rgba(0,0,0,.12);border-radius:var(--r);font-family:var(--font-sans);font-size:.9rem;color:var(--ink);background:#fff;transition:border-color .2s;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--clay);}
+.modal-close{position:absolute;top:1.2rem;right:1.2rem;width:32px;height:32px;border-radius:50%;border:1px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--mist);transition:all .2s;}
+.modal-close:hover{border-color:var(--clay);color:var(--clay);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .about-hero{grid-template-columns:1fr;}
+  .about-hero-img{aspect-ratio:16/9;order:-1;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  #nav .nav-links,#nav .lang-picker{display:none;}
+  .hamburger{display:flex;}
+  .mobile-menu{display:flex;}
+  .team-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}
+}
+@media(max-width:580px){
+  .footer-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .dest-full-grid{grid-template-columns:1fr;}
+  .dest-modal-highlights{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a class="brand" href="#" onclick="navigate('home');return false;">Vāyu Travels</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="navigate('home');return false;" class="nav-link active" data-page="home" data-i18n="nav_home">Home</a></li>
+    <li><a href="#" onclick="navigate('destinations');return false;" class="nav-link" data-page="destinations" data-i18n="nav_dest">Destinations</a></li>
+    <li><a href="#" onclick="navigate('about');return false;" class="nav-link" data-page="about" data-i18n="nav_about">About Us</a></li>
+    <li><a href="#" onclick="navigate('services');return false;" class="nav-link" data-page="services" data-i18n="nav_services">Services</a></li>
+    <li><a href="#" onclick="openModal();return false;" class="nav-link nav-book-btn" data-i18n="nav_book">Book Now</a></li>
+  </ul>
+  <div class="lang-picker" id="langPicker">
+    <button class="lang-btn" onclick="toggleLangMenu()">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <span id="currentLangLabel">EN</span>
+      <svg viewBox="0 0 24 24" style="width:10px"><path d="M7 10l5 5 5-5z"/></svg>
+    </button>
+    <div class="lang-dropdown" id="langDropdown"></div>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="navigate('home');toggleMobile();return false;" data-i18n="nav_home">Home</a>
+  <a href="#" onclick="navigate('destinations');toggleMobile();return false;" data-i18n="nav_dest">Destinations</a>
+  <a href="#" onclick="navigate('about');toggleMobile();return false;" data-i18n="nav_about">About Us</a>
+  <a href="#" onclick="navigate('services');toggleMobile();return false;" data-i18n="nav_services">Services</a>
+  <a href="#" onclick="openModal();toggleMobile();return false;" data-i18n="nav_book">Book Now</a>
+</div>
+
+<!-- ═══ HOME ═══ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-slides" id="heroSlides"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-i18n="hero_eyebrow">Est. 2009 · New Delhi, India</p>
+      <h1 class="hero-title" data-i18n="hero_title">Discover India's <em>Timeless</em> Soul</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Curated journeys through ancient temples, vibrant spice markets, and landscapes that defy imagination.</p>
+      <div class="booking-strip">
+        <button class="btn-primary" onclick="openModal()" data-i18n="btn_book">Plan Your Journey</button>
+        <button class="btn-outline-light" onclick="navigate('destinations')" data-i18n="btn_explore">Explore Destinations</button>
+      </div>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">14</div><div class="stat-label" data-i18n="stat_years">Years of Excellence</div></div>
+    <div class="stat"><div class="stat-num">12K+</div><div class="stat-label" data-i18n="stat_travelers">Happy Travellers</div></div>
+    <div class="stat"><div class="stat-num">280+</div><div class="stat-label" data-i18n="stat_dest">Destinations</div></div>
+    <div class="stat"><div class="stat-num">98%</div><div class="stat-label" data-i18n="stat_sat">Satisfaction Rate</div></div>
+  </div>
+
+  <section class="section" id="destinations" style="background:var(--sand)">
+    <p class="section-label reveal" data-i18n="dest_label">Featured Destinations</p>
+    <h2 class="section-title reveal" data-i18n="dest_title">Places That Will <em>Stay With You</em></h2>
+    <p class="section-sub reveal" data-i18n="dest_sub">From the golden deserts of Rajasthan to the emerald backwaters of Kerala — every corner tells its own story.</p>
+    <div class="dest-grid" id="destGrid"></div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn-primary" onclick="navigate('destinations')" data-i18n="btn_all_dest">View All Destinations</button>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
+      <div>
+        <p class="section-label reveal" data-i18n="testi_label">Testimonials</p>
+        <h2 class="section-title reveal" style="margin-bottom:0" data-i18n="testi_title">Voices of <em>Our Travellers</em></h2>
+      </div>
+    </div>
+    <div class="testi-track-wrap" style="margin-top:2.5rem"><div class="testi-track" id="testiTrack"></div></div>
+    <div class="testi-controls">
+      <button class="testi-arrow" onclick="testiMove(-1)">←</button>
+      <button class="testi-arrow" onclick="testiMove(1)">→</button>
+      <div class="testi-dots" id="testiDots"></div>
+    </div>
+  </section>
+
+  <section style="background:var(--clay);padding:clamp(50px,8vw,90px) clamp(20px,6vw,100px);text-align:center">
+    <p class="section-label" style="color:rgba(255,255,255,.65)" data-i18n="cta_label">Ready to Begin?</p>
+    <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:300;color:#fff;margin-bottom:1rem" data-i18n="cta_title">Your Perfect India Trip Awaits</h2>
+    <p style="color:rgba(255,255,255,.75);max-width:480px;margin:0 auto 2rem;font-size:.95rem;font-weight:300" data-i18n="cta_sub">Tell us your dream and our experts will craft every detail.</p>
+    <button class="btn-outline-light" onclick="openModal()" data-i18n="btn_book">Plan Your Journey</button>
+  </section>
+</div>
+
+<!-- ═══ DESTINATIONS PAGE ═══ -->
+<div id="page-destinations" class="page">
+  <div class="dest-page-hero">
+    <p class="section-label" style="color:#f5c99a" data-i18n="destpage_label">Explore India</p>
+    <h1 class="section-title" data-i18n="destpage_title">Find Your <em>Perfect Corner</em> of India</h1>
+    <p class="section-sub" data-i18n="destpage_sub">Nine extraordinary regions, each with its own soul. Filter by what calls to you.</p>
+    <div class="dest-filters" id="destFilters"></div>
+  </div>
+  <div class="dest-full-grid" id="destFullGrid"></div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="about-hero-text">
+      <p class="section-label" data-i18n="about_label">Our Story</p>
+      <h1 class="section-title" data-i18n="about_title">Born From a <em>Love of India</em></h1>
+      <div class="divider"></div>
+      <p class="section-sub" data-i18n="about_story1">Founded in 2009 by seasoned traveller Arjun Mehta, Vāyu Travels grew from a single vision: to share India's extraordinary diversity with the world — thoughtfully, sustainably, and with genuine warmth.</p>
+      <p class="section-sub" style="margin-top:1rem" data-i18n="about_story2">Today our team of 40+ experts spans every region of India, bringing insider knowledge and personal connections that turn good trips into transformative experiences.</p>
+    </div>
+    <div class="about-hero-img">
+      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80" alt="Taj Mahal at sunrise" loading="lazy">
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--sand)">
+    <p class="section-label reveal" data-i18n="values_label">Our Values</p>
+    <h2 class="section-title reveal" data-i18n="values_title">What We <em>Stand For</em></h2>
+    <div class="values-grid" id="valuesGrid"></div>
+  </section>
+
+  <section class="section">
+    <p class="section-label reveal" data-i18n="team_label">The Team</p>
+    <h2 class="section-title reveal" data-i18n="team_title">Faces Behind <em>Your Journey</em></h2>
+    <p class="section-sub reveal" data-i18n="team_sub">Hover over each card to learn more about the people crafting your experience.</p>
+    <div class="team-grid" id="teamGrid"></div>
+  </section>
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<div id="page-services" class="page">
+  <div class="services-hero">
+    <p class="section-label" data-i18n="srv_label">What We Offer</p>
+    <h1 class="section-title" data-i18n="srv_title">Travel Crafted <em>For You</em></h1>
+    <p class="section-sub" data-i18n="srv_sub">From immersive cultural tours to seamless corporate travel — every itinerary is shaped around you.</p>
+    <div class="services-tabs">
+      <button class="tab-btn active" onclick="switchTab('packages')" data-i18n="tab_packages">Package Tours</button>
+      <button class="tab-btn" onclick="switchTab('custom')" data-i18n="tab_custom">Custom Itineraries</button>
+      <button class="tab-btn" onclick="switchTab('corporate')" data-i18n="tab_corporate">Corporate Travel</button>
+    </div>
+  </div>
+  <section class="section" style="padding-top:2rem">
+    <div class="service-panel active" id="panel-packages">
+      <div class="service-packages" id="pkgGrid"></div>
+    </div>
+    <div class="service-panel" id="panel-custom">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center">
+        <div>
+          <p class="section-label" data-i18n="custom_label">Tailored For You</p>
+          <h2 class="section-title" data-i18n="custom_title">Every Detail, <em>Your Way</em></h2>
+          <p class="section-sub" data-i18n="custom_text">Our specialist planners work with you one-on-one to design a completely bespoke itinerary. Choose your pace, your style, and your passions — we handle everything else.</p>
+          <ul class="include-list" style="margin-top:1.5rem;gap:.6rem">
+            <li data-i18n="c1">Dedicated travel consultant from day one</li>
+            <li data-i18n="c2">24/7 on-trip support via WhatsApp</li>
+            <li data-i18n="c3">Exclusive local guides and hidden gems</li>
+            <li data-i18n="c4">Flexible cancellation &amp; modification</li>
+            <li data-i18n="c5">Airport, hotel and activity coordination</li>
+          </ul>
+          <button class="btn-primary" style="margin-top:2rem" onclick="openModal()" data-i18n="btn_enquire">Start Planning</button>
+        </div>
+        <div style="position:relative;aspect-ratio:4/5;border-radius:12px;overflow:hidden;box-shadow:20px 20px 0 var(--sand)">
+          <img src="https://images.unsplash.com/photo-1609948543911-5e47be5e8f7f?w=800&q=80" alt="Custom travel planning" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="service-panel" id="panel-corporate">
+      <div style="margin-bottom:2rem">
+        <p class="section-label" data-i18n="corp_label">Corporate Solutions</p>
+        <h2 class="section-title" data-i18n="corp_title">Business Travel, <em>Elevated</em></h2>
+        <p class="section-sub" data-i18n="corp_text">Seamless corporate travel management, incentive trips, and MICE solutions handled by our dedicated business travel team.</p>
+      </div>
+      <div class="corp-grid" id="corpGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Vāyu Travels</div>
+      <p class="footer-tagline" data-i18n="footer_tagline">Crafting extraordinary India journeys since 2009. Let the wind guide you.</p>
+      <p class="footer-tagline" data-i18n="footer-tagline">Disclaimer:Nothing showed in this page is actually real (Except from the images). This is merely a demonstration website.</p>
+      <div class="social-links" style="margin-top:1.5rem">
+        <a href="#" title="Instagram">𝕀</a>
+        <a href="#" title="Facebook">𝔽</a>
+        <a href="#" title="LinkedIn">𝕃</a>
+        <a href="#" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-heading" data-i18n="footer_explore">Explore</p>
+      <ul class="footer-links">
+        <li><a href="#" onclick="navigate('home');return false;" data-i18n="nav_home">Home</a></li>
+        <li><a href="#" onclick="navigate('destinations');return false;" data-i18n="nav_dest">Destinations</a></li>
+        <li><a href="#" onclick="navigate('about');return false;" data-i18n="nav_about">About Us</a></li>
+        <li><a href="#" onclick="navigate('services');return false;" data-i18n="nav_services">Services</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading" data-i18n="footer_destinations">Top Destinations</p>
+      <ul class="footer-links" id="footerDestLinks"></ul>
+    </div>
+    <div>
+      <p class="footer-heading" data-i18n="footer_contact">Contact</p>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@vayutravels.in">hello@vayutravels.in</a></li>
+        <li><a href="tel:+911140001234">+91 11 4000 1234</a></li>
+        <li>Connaught Place, New Delhi 110001</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Vāyu Travels · <span data-i18n="footer_rights">All rights reserved</span></span>
+    <span style="font-size:.72rem;color:rgba(255,255,255,.25)">Designed with ♥ for India</span>
+  </div>
+</footer>
+
+<!-- ═══ BOOKING MODAL ═══ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2 class="modal-title" data-i18n="modal_title">Plan Your Journey</h2>
+    <p class="modal-sub" data-i18n="modal_sub">Fill in your details and our team will reach out within 24 hours.</p>
+    <div class="form-row">
+      <div class="form-group"><label data-i18n="form_first">First Name</label><input type="text" placeholder="Arjun" data-i18n-placeholder="placeholder_first"></div>
+      <div class="form-group"><label data-i18n="form_last">Last Name</label><input type="text" placeholder="Mehta" data-i18n-placeholder="placeholder_last"></div>
+    </div>
+    <div class="form-group"><label data-i18n="form_email">Email Address</label><input type="email" placeholder="you@example.com" data-i18n-placeholder="placeholder_email"></div>
+    <div class="form-group">
+      <label data-i18n="form_dest">Destination Interest</label>
+      <select id="modalDestSelect"></select>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label data-i18n="form_date">Travel Date</label><input type="month"></div>
+      <div class="form-group"><label data-i18n="form_guests">Guests</label><input type="number" min="1" value="2"></div>
+    </div>
+    <button class="btn-primary" style="width:100%" data-i18n="form_submit">Send Enquiry</button>
+  </div>
+</div>
+
+<!-- ═══ DESTINATION DETAIL MODAL ═══ -->
+<div class="dest-modal-overlay" id="destModalOverlay" onclick="closeDestModalOutside(event)">
+  <div class="dest-modal" id="destModal">
+    <button class="dest-modal-close" onclick="closeDestModal()">✕</button>
+    <div class="dest-modal-hero">
+      <div class="dest-modal-hero-bg" id="destModalBg"></div>
+      <div class="dest-modal-title"><em id="destModalState"></em><span id="destModalName"></span></div>
+    </div>
+    <div class="dest-modal-body">
+      <p class="dest-modal-desc" id="destModalDesc"></p>
+      <div class="dest-modal-highlights" id="destModalHighlights"></div>
+      <button class="btn-primary" onclick="closeDestModal();openModal();" data-i18n="btn_book">Plan Your Journey</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── LANGUAGES ───────────────────────────────────────────────
+const LANGUAGES=[
+  {code:'en',label:'English',flag:'🇬🇧',short:'EN',dir:'ltr'},
+  {code:'es',label:'Español',flag:'🇪🇸',short:'ES',dir:'ltr'},
+  {code:'fr',label:'Français',flag:'🇫🇷',short:'FR',dir:'ltr'},
+  {code:'de',label:'Deutsch',flag:'🇩🇪',short:'DE',dir:'ltr'},
+  {code:'it',label:'Italiano',flag:'🇮🇹',short:'IT',dir:'ltr'},
+  {code:'pt',label:'Português',flag:'🇧🇷',short:'PT',dir:'ltr'},
+  {code:'ja',label:'日本語',flag:'🇯🇵',short:'JA',dir:'ltr'},
+  {code:'zh',label:'中文',flag:'🇨🇳',short:'ZH',dir:'ltr'},
+  {code:'ar',label:'العربية',flag:'🇸🇦',short:'AR',dir:'rtl'},
+  {code:'hi',label:'हिन्दी',flag:'🇮🇳',short:'HI',dir:'ltr'},
+  {code:'ko',label:'한국어',flag:'🇰🇷',short:'KO',dir:'ltr'},
+  {code:'ru',label:'Русский',flag:'🇷🇺',short:'RU',dir:'ltr'},
+];
+
+// ─── TRANSLATIONS (key strings only; team/dest content translated inline) ──
+const T={
+  en:{nav_home:'Home',nav_dest:'Destinations',nav_about:'About Us',nav_services:'Services',nav_book:'Book Now',hero_eyebrow:'Est. 2009 · New Delhi, India',hero_title:"Discover India's Timeless Soul",hero_sub:'Curated journeys through ancient temples, vibrant spice markets, and landscapes that defy imagination.',btn_book:'Plan Your Journey',btn_explore:'Explore Destinations',btn_enquire:'Start Planning',btn_all_dest:'View All Destinations',stat_years:'Years of Excellence',stat_travelers:'Happy Travellers',stat_dest:'Destinations',stat_sat:'Satisfaction Rate',dest_label:'Featured Destinations',dest_title:'Places That Will Stay With You',dest_sub:'From the golden deserts of Rajasthan to the emerald backwaters of Kerala — every corner tells its own story.',testi_label:'Testimonials',testi_title:'Voices of Our Travellers',cta_label:'Ready to Begin?',cta_title:'Your Perfect India Trip Awaits',cta_sub:'Tell us your dream and our experts will craft every detail.',about_label:'Our Story',about_title:'Born From a Love of India',about_story1:"Founded in 2009 by seasoned traveller Arjun Mehta, Vāyu Travels grew from a single vision: to share India's extraordinary diversity with the world — thoughtfully, sustainably, and with genuine warmth.",about_story2:'Today our team of 40+ experts spans every region of India, bringing insider knowledge and personal connections that turn good trips into transformative experiences.',values_label:'Our Values',values_title:'What We Stand For',team_label:'The Team',team_title:'Faces Behind Your Journey',team_sub:'Hover over each card to learn more about the people crafting your experience.',srv_label:'What We Offer',srv_title:'Travel Crafted For You',srv_sub:'From immersive cultural tours to seamless corporate travel — every itinerary is shaped around you.',tab_packages:'Package Tours',tab_custom:'Custom Itineraries',tab_corporate:'Corporate Travel',custom_label:'Tailored For You',custom_title:'Every Detail, Your Way',custom_text:'Our specialist planners work with you one-on-one to design a completely bespoke itinerary. Choose your pace, your style, and your passions — we handle everything else.',c1:'Dedicated travel consultant from day one',c2:'24/7 on-trip support via WhatsApp',c3:'Exclusive local guides and hidden gems',c4:'Flexible cancellation & modification',c5:'Airport, hotel and activity coordination',corp_label:'Corporate Solutions',corp_title:'Business Travel, Elevated',corp_text:'Seamless corporate travel management, incentive trips, and MICE solutions handled by our dedicated business travel team.',destpage_label:'Explore India',destpage_title:'Find Your Perfect Corner of India',destpage_sub:'Nine extraordinary regions, each with its own soul. Filter by what calls to you.',footer_tagline:'Disclaimer: Nothing shown on this page is actually real (except the images). This is merely a demonstration website.',footer_explore:'Explore',footer_destinations:'Top Destinations',footer_contact:'Contact',footer_rights:'All rights reserved',modal_title:'Plan Your Journey',modal_sub:'Fill in your details and our team will reach out within 24 hours.',form_first:'First Name',form_last:'Last Name',form_email:'Email Address',form_dest:'Destination Interest',form_date:'Travel Date',form_guests:'Guests',form_submit:'Send Enquiry',filter_all:'All',filter_heritage:'Heritage',filter_nature:'Nature',filter_adventure:'Adventure',filter_beaches:'Beaches',filter_culture:'Culture',filter_city:'City',dest_discover:'Discover more →',placeholder_first:'Arjun',placeholder_last:'Mehta',placeholder_email:'you@example.com'},
+  es:{nav_home:'Inicio',nav_dest:'Destinos',nav_about:'Nosotros',nav_services:'Servicios',nav_book:'Reservar',hero_eyebrow:'Fund. 2009 · Nueva Delhi, India',hero_title:'Descubre el Alma Atemporal de India',hero_sub:'Viajes curados entre templos ancestrales, mercados de especias y paisajes que desafían la imaginación.',btn_book:'Planifica tu Viaje',btn_explore:'Explorar Destinos',btn_enquire:'Comenzar',btn_all_dest:'Ver Todos los Destinos',stat_years:'Años de Excelencia',stat_travelers:'Viajeros Felices',stat_dest:'Destinos',stat_sat:'Satisfacción',dest_label:'Destinos Destacados',dest_title:'Lugares Que Permanecerán Contigo',dest_sub:'Desde los desiertos dorados de Rajastán hasta las aguas esmeralda de Kerala.',testi_label:'Testimonios',testi_title:'La Voz de Nuestros Viajeros',cta_label:'¿Listo para Empezar?',cta_title:'Tu Viaje Perfecto a India te Espera',cta_sub:'Cuéntanos tu sueño y nuestros expertos cuidarán cada detalle.',about_label:'Nuestra Historia',about_title:'Nacidos del Amor por India',about_story1:'Fundada en 2009 por Arjun Mehta, Vāyu Travels creció de una visión: compartir la diversidad de India con cuidado y calidez genuina.',about_story2:'Hoy nuestro equipo de 40+ expertos cubre cada región de India, transformando buenos viajes en experiencias transformadoras.',values_label:'Nuestros Valores',values_title:'En Lo Que Creemos',team_label:'El Equipo',team_title:'Los Rostros Detrás de Tu Viaje',team_sub:'Pasa el cursor sobre cada tarjeta para conocer al equipo.',srv_label:'Lo Que Ofrecemos',srv_title:'Viajes Creados Para Ti',srv_sub:'Desde tours culturales hasta viajes corporativos — todo diseñado para ti.',tab_packages:'Paquetes',tab_custom:'Itinerarios a Medida',tab_corporate:'Viajes Corporativos',custom_label:'Personalizado Para Ti',custom_title:'Cada Detalle, a Tu Manera',custom_text:'Nuestros planificadores trabajan contigo personalmente para diseñar un itinerario completamente a medida.',c1:'Consultor dedicado desde el primer día',c2:'Soporte 24/7 por WhatsApp',c3:'Guías locales exclusivos',c4:'Cancelación flexible',c5:'Coordinación completa',corp_label:'Soluciones Corporativas',corp_title:'Viajes de Negocios, Elevados',corp_text:'Gestión integral de viajes corporativos, incentivos y MICE.',destpage_label:'Explorar India',destpage_title:'Encuentra Tu Rincón Perfecto de India',destpage_sub:'Nueve regiones extraordinarias. Filtra por lo que te inspire.',footer_tagline:'Descargo de responsabilidad: Nada mostrado en esta página es realmente real (excepto las imágenes). Esto es meramente un sitio web de demostración.',footer_explore:'Explorar',footer_destinations:'Destinos Top',footer_contact:'Contacto',footer_rights:'Todos los derechos reservados',modal_title:'Planifica Tu Viaje',modal_sub:'Rellena tus datos y te contactaremos en 24 horas.',form_first:'Nombre',form_last:'Apellido',form_email:'Correo',form_dest:'Destino',form_date:'Fecha',form_guests:'Viajeros',form_submit:'Enviar',filter_all:'Todos',filter_heritage:'Patrimonio',filter_nature:'Naturaleza',filter_adventure:'Aventura',filter_beaches:'Playas',filter_culture:'Cultura',filter_city:'Ciudad',dest_discover:'Descubre más →',placeholder_first:'Arjun',placeholder_last:'Mehta',placeholder_email:'tú@ejemplo.com'},
+  fr:{nav_home:'Accueil',nav_dest:'Destinations',nav_about:'À Propos',nav_services:'Services',nav_book:'Réserver',hero_eyebrow:'Fond. 2009 · New Delhi, Inde',hero_title:"Découvrez l'Âme Intemporelle de l'Inde",hero_sub:"Des voyages façonnés entre temples anciens, marchés aux épices et paysages extraordinaires.",btn_book:'Planifier Mon Voyage',btn_explore:'Explorer',btn_enquire:'Commencer',btn_all_dest:'Voir Toutes les Destinations',stat_years:"Années d'Excellence",stat_travelers:'Voyageurs Heureux',stat_dest:'Destinations',stat_sat:'Satisfaction',dest_label:'Destinations Phares',dest_title:'Des Lieux Qui Restent Gravés',dest_sub:"Chaque destination raconte une histoire différente.",testi_label:'Témoignages',testi_title:'La Voix de Nos Voyageurs',cta_label:'Prêt à Commencer ?',cta_title:"Votre Voyage Idéal en Inde Vous Attend",cta_sub:"Parlez-nous de votre rêve.",about_label:'Notre Histoire',about_title:"Né d'un Amour pour l'Inde",about_story1:"Fondée en 2009 par Arjun Mehta, Vāyu Travels est née d'une vision unique.",about_story2:"Aujourd'hui, 40+ experts couvrent chaque région de l'Inde.",values_label:'Nos Valeurs',values_title:'Ce En Quoi Nous Croyons',team_label:"L'Équipe",team_title:'Les Visages Derrière Votre Voyage',team_sub:'Survolez chaque carte pour en savoir plus.',srv_label:'Nos Offres',srv_title:'Des Voyages Conçus Pour Vous',srv_sub:"Des circuits culturels aux voyages d'affaires.",tab_packages:'Forfaits',tab_custom:'Personnalisés',tab_corporate:"Affaires",custom_label:'Pour Vous',custom_title:'Chaque Détail, À Votre Façon',custom_text:'Nos planificateurs créent un programme entièrement sur mesure.',c1:'Conseiller dédié dès le premier jour',c2:'Assistance 24/7 via WhatsApp',c3:'Guides exclusifs',c4:'Annulation flexible',c5:'Coordination complète',corp_label:"Solutions d'Entreprise",corp_title:"Voyages d'Affaires Élevés",corp_text:"Gestion intégrale des voyages d'entreprise et MICE.",destpage_label:"Explorer l'Inde",destpage_title:'Trouvez Votre Coin Parfait en Inde',destpage_sub:'Neuf régions extraordinaires.',footer_tagline:"Créant des voyages en Inde depuis 2009.",footer_explore:'Explorer',footer_destinations:'Top Destinations',footer_contact:'Contact',footer_rights:'Tous droits réservés',modal_title:'Planifier',modal_sub:'Remplissez vos coordonnées.',form_first:'Prénom',form_last:'Nom',form_email:'E-mail',form_dest:'Destination',form_date:'Date',form_guests:'Voyageurs',form_submit:'Envoyer',filter_all:'Tous',filter_heritage:'Patrimoine',filter_nature:'Nature',filter_adventure:'Aventure',filter_beaches:'Plages',filter_culture:'Culture',filter_city:'Ville',dest_discover:'Découvrir plus →',placeholder_first:'Arjun',placeholder_last:'Mehta',placeholder_email:'vous@exemple.com'},
+  de:{nav_home:'Startseite',nav_dest:'Reiseziele',nav_about:'Über Uns',nav_services:'Leistungen',nav_book:'Buchen',hero_eyebrow:'Gegr. 2009 · Neu-Delhi, Indien',hero_title:"Entdecken Sie Indiens Zeitlose Seele",hero_sub:'Kuratierte Reisen durch alte Tempel, Gewürzmärkte und beeindruckende Landschaften.',btn_book:'Reise Planen',btn_explore:'Entdecken',btn_enquire:'Starten',btn_all_dest:'Alle Reiseziele',stat_years:'Jahre Exzellenz',stat_travelers:'Reisende',stat_dest:'Reiseziele',stat_sat:'Zufriedenheit',dest_label:'Empfehlungen',dest_title:'Orte, Die Bleiben',dest_sub:'Jedes Reiseziel erzählt eine andere Geschichte.',testi_label:'Bewertungen',testi_title:'Stimmen Unserer Reisenden',cta_label:'Bereit?',cta_title:'Ihre Indien-Reise Wartet',cta_sub:'Erzählen Sie uns Ihren Traum.',about_label:'Unsere Geschichte',about_title:'Geboren aus Liebe zu Indien',about_story1:'Gegründet 2009, wuchs Vāyu Travels aus einer einzigen Vision.',about_story2:'Heute umfasst unser Team 40+ Experten in ganz Indien.',values_label:'Werte',values_title:'Wofür Wir Stehen',team_label:'Team',team_title:'Die Gesichter Hinter Ihrer Reise',team_sub:'Fahren Sie über jede Karte für mehr Informationen.',srv_label:'Angebot',srv_title:'Reisen Nach Maß',srv_sub:'Von Kulturreisen bis Geschäftsreisen.',tab_packages:'Pauschalreisen',tab_custom:'Individuelle Routen',tab_corporate:'Geschäftsreisen',custom_label:'Maßgeschneidert',custom_title:'Jedes Detail, Ihr Weg',custom_text:'Wir gestalten vollständig individuelle Reiseprogramme.',c1:'Persönlicher Berater',c2:'24/7 Support via WhatsApp',c3:'Exklusive Guides',c4:'Flexible Stornierung',c5:'Vollständige Koordination',corp_label:'Business',corp_title:'Geschäftsreisen',corp_text:'Reisemanagement, Incentives und MICE-Lösungen.',destpage_label:'Indien Erkunden',destpage_title:'Finden Sie Ihr Indien',destpage_sub:'Neun außergewöhnliche Regionen.',footer_tagline:'Haftungsausschluss: Nichts auf dieser Seite ist tatsächlich real (außer den Bildern). Dies ist lediglich eine Demonstrationswebsite.',footer_explore:'Erkunden',footer_destinations:'Top-Reiseziele',footer_contact:'Kontakt',footer_rights:'Alle Rechte vorbehalten',modal_title:'Reise Planen',modal_sub:'Füllen Sie das Formular aus.',form_first:'Vorname',form_last:'Nachname',form_email:'E-Mail',form_dest:'Reiseziel',form_date:'Datum',form_guests:'Reisende',form_submit:'Senden',filter_all:'Alle',filter_heritage:'Kulturerbe',filter_nature:'Natur',filter_adventure:'Abenteuer',filter_beaches:'Strände',filter_culture:'Kultur',filter_city:'Stadt',dest_discover:'Mehr entdecken →',placeholder_first:'Arjun',placeholder_last:'Mehta',placeholder_email:'du@beispiel.de'},
+  it:{nav_home:'Home',nav_dest:'Destinazioni',nav_about:'Chi Siamo',nav_services:'Servizi',nav_book:'Prenota',hero_eyebrow:'Fund. 2009 · Nuova Delhi, India',hero_title:"Scopri l'Anima Senza Tempo dell'India",hero_sub:"Viaggi curati tra templi antichi, mercati di spezie e paesaggi straordinari.",btn_book:'Pianifica',btn_explore:'Esplora',btn_enquire:'Inizia',btn_all_dest:'Tutte le Destinazioni',stat_years:'Anni',stat_travelers:'Viaggiatori',stat_dest:'Destinazioni',stat_sat:'Soddisfazione',dest_label:'In Evidenza',dest_title:'Luoghi Che Resteranno Con Te',dest_sub:'Ogni destinazione racconta una storia diversa.',testi_label:'Testimonianze',testi_title:'Le Voci dei Nostri Viaggiatori',cta_label:'Pronti?',cta_title:'Il Tuo Viaggio Perfetto Ti Aspetta',cta_sub:'Raccontaci il tuo sogno.',about_label:'La Nostra Storia',about_title:"Nati dall'Amore per l'India",about_story1:"Fondata nel 2009 da Arjun Mehta.",about_story2:"Oggi 40+ esperti coprono ogni regione dell'India.",values_label:'Valori',values_title:'Ciò in Cui Crediamo',team_label:'Il Team',team_title:'I Volti Dietro il Tuo Viaggio',team_sub:'Passa il mouse per saperne di più.',srv_label:'Servizi',srv_title:'Viaggi Pensati Per Te',srv_sub:'Da tour culturali a viaggi aziendali.',tab_packages:'Pacchetti',tab_custom:'Personalizzati',tab_corporate:'Aziendali',custom_label:'Su Misura',custom_title:'Ogni Dettaglio, a Modo Tuo',custom_text:'Pianificatori specializzati creano itinerari completamente personalizzati.',c1:'Consulente dedicato',c2:'Assistenza 24/7 WhatsApp',c3:'Guide esclusive',c4:'Cancellazione flessibile',c5:'Coordinamento completo',corp_label:'Aziende',corp_title:'Viaggi Aziendali',corp_text:'Gestione integrale viaggi corporate e MICE.',destpage_label:'Esplora India',destpage_title:'Trova il Tuo Angolo Perfetto',destpage_sub:'Nove regioni straordinarie.',footer_tagline:"Disclaimer: Niente mostrato in questa pagina è realmente reale (tranne le immagini). Questo è semplicemente un sito web dimostrativo.",footer_explore:'Esplora',footer_destinations:'Destinazioni',footer_contact:'Contatti',footer_rights:'Tutti i diritti riservati',modal_title:'Pianifica',modal_sub:'Compila e ti contatteremo entro 24 ore.',form_first:'Nome',form_last:'Cognome',form_email:'Email',form_dest:'Destinazione',form_date:'Data',form_guests:'Ospiti',form_submit:'Invia',filter_all:'Tutti',filter_heritage:'Patrimonio',filter_nature:'Natura',filter_adventure:'Avventura',filter_beaches:'Spiagge',filter_culture:'Cultura',filter_city:'Città',dest_discover:'Scopri di più →',placeholder_first:'Arjun',placeholder_last:'Mehta',placeholder_email:'tuo@esempio.com'},
+  pt:{nav_home:'Início',nav_dest:'Destinos',nav_about:'Sobre Nós',nav_services:'Serviços',nav_book:'Reservar',hero_eyebrow:'Fund. 2009 · Nova Delhi, Índia',hero_title:"Descubra a Alma Atemporal da Índia",hero_sub:'Viagens selecionadas entre templos antigos, mercados de especiarias e paisagens deslumbrantes.',btn_book:'Planejar Viagem',btn_explore:'Explorar',btn_enquire:'Começar',btn_all_dest:'Ver Todos',stat_years:'Anos',stat_travelers:'Viajantes',stat_dest:'Destinos',stat_sat:'Satisfação',dest_label:'Destinos em Destaque',dest_title:'Lugares Que Ficarão Com Você',dest_sub:'Cada destino conta uma história diferente.',testi_label:'Depoimentos',testi_title:'Vozes dos Nossos Viajantes',cta_label:'Pronto?',cta_title:'Sua Viagem Perfeita Espera por Você',cta_sub:'Conte-nos seu sonho.',about_label:'Nossa História',about_title:"Nascidos do Amor pela Índia",about_story1:"Fundada em 2009 por Arjun Mehta.",about_story2:'Hoje 40+ especialistas cobrem todas as regiões da Índia.',values_label:'Valores',values_title:'No Que Acreditamos',team_label:'A Equipe',team_title:'Os Rostos Por Trás da Sua Viagem',team_sub:'Passe o mouse para saber mais.',srv_label:'Serviços',srv_title:'Viagens Feitas Para Você',srv_sub:'De tours culturais a viagens corporativas.',tab_packages:'Pacotes',tab_custom:'Personalizados',tab_corporate:'Corporativo',custom_label:'Personalizado',custom_title:'Cada Detalhe, Do Seu Jeito',custom_text:'Planejadores especializados criam roteiros totalmente personalizados.',c1:'Consultor dedicado',c2:'Suporte 24/7 WhatsApp',c3:'Guias exclusivos',c4:'Cancelamento flexível',c5:'Coordenação completa',corp_label:'Corporativo',corp_title:'Viagens de Negócios',corp_text:'Gestão integrada de viagens corporativas e MICE.',destpage_label:'Explorar Índia',destpage_title:'Encontre Seu Canto Perfeito',destpage_sub:'Nove regiões extraordinárias.',footer_tagline:'Isenção de responsabilidade: Nada mostrado nesta página é realmente real (exceto as imagens). Isso é apenas um site de demonstração.',footer_explore:'Explorar',footer_destinations:'Top Destinos',footer_contact:'Contato',footer_rights:'Todos os direitos reservados',modal_title:'Planejar',modal_sub:'Preencha seus dados.',form_first:'Nome',form_last:'Sobrenome',form_email:'E-mail',form_dest:'Destino',form_date:'Data',form_guests:'Viajantes',form_submit:'Enviar',filter_all:'Todos',filter_heritage:'Patrimônio',filter_nature:'Natureza',filter_adventure:'Aventura',filter_beaches:'Praias',filter_culture:'Cultura',filter_city:'Cidade',dest_discover:'Descubra mais →',placeholder_first:'Arjun',placeholder_last:'Mehta',placeholder_email:'voce@exemplo.com'},
+  ja:{nav_home:'ホーム',nav_dest:'目的地',nav_about:'私たちについて',nav_services:'サービス',nav_book:'予約する',hero_eyebrow:'設立2009年・ニューデリー',hero_title:'インドの永遠の魂を発見する',hero_sub:'古代寺院、活気あふれるスパイス市場、想像を超える風景への旅。',btn_book:'旅を計画する',btn_explore:'目的地を見る',btn_enquire:'始める',btn_all_dest:'全目的地を見る',stat_years:'年の実績',stat_travelers:'旅行者',stat_dest:'目的地',stat_sat:'満足度',dest_label:'おすすめ',dest_title:'心に残る場所',dest_sub:'それぞれの目的地が異なる物語を語ります。',testi_label:'お客様の声',testi_title:'旅行者たちの声',cta_label:'準備はいいですか？',cta_title:'あなただけの旅が待っています',cta_sub:'夢を教えてください。',about_label:'私たちの物語',about_title:'インドへの愛から生まれた',about_story1:'2009年、アルジュン・メータによって設立。',about_story2:'現在、40名以上の専門家チームがインド全域をカバー。',values_label:'価値観',values_title:'大切にしていること',team_label:'チーム',team_title:'旅の裏側にいる人々',team_sub:'カードにカーソルを合わせてください。',srv_label:'サービス',srv_title:'あなたのための旅',srv_sub:'文化ツアーから法人旅行まで。',tab_packages:'パッケージ',tab_custom:'カスタム',tab_corporate:'法人',custom_label:'専用',custom_title:'すべてをあなたの思い通りに',custom_text:'専門のプランナーがオーダーメイドの旅程を設計します。',c1:'専任コンサルタント',c2:'24/7サポート',c3:'専属ガイド',c4:'柔軟なキャンセル',c5:'全コーディネート',corp_label:'法人向け',corp_title:'ビジネス旅行',corp_text:'法人旅行管理とMICEソリューション。',destpage_label:'インドを探索',destpage_title:'あなたのインドを見つけよう',destpage_sub:'九つの特別な地域。',footer_tagline:'免責事項：このページに表示されているものはすべて実際には実在しません（画像を除く）。これは単なるデモンストレーションウェブサイトです。',footer_explore:'探す',footer_destinations:'人気目的地',footer_contact:'お問い合わせ',footer_rights:'全著作権所有',modal_title:'旅を計画する',modal_sub:'詳細を入力してください。',form_first:'名',form_last:'姓',form_email:'メール',form_dest:'目的地',form_date:'日付',form_guests:'人数',form_submit:'送信',filter_all:'全て',filter_heritage:'文化遺産',filter_nature:'自然',filter_adventure:'冒険',filter_beaches:'ビーチ',filter_culture:'文化',filter_city:'都市',dest_discover:'さらに見る →',placeholder_first:'アルジュン',placeholder_last:'メータ',placeholder_email:'you@example.com'},
+  zh:{nav_home:'首页',nav_dest:'目的地',nav_about:'关于我们',nav_services:'服务',nav_book:'立即预订',hero_eyebrow:'成立于2009年 · 新德里',hero_title:'探索印度永恒的灵魂',hero_sub:'精心策划的旅程，带您穿越古老神庙、香料市场和壮观风光。',btn_book:'规划行程',btn_explore:'浏览目的地',btn_enquire:'开始规划',btn_all_dest:'查看全部目的地',stat_years:'年卓越服务',stat_travelers:'满意旅客',stat_dest:'目的地',stat_sat:'满意度',dest_label:'精选目的地',dest_title:'让您难以忘怀的地方',dest_sub:'每个目的地都讲述着不同的故事。',testi_label:'旅客评价',testi_title:'旅客的真实之声',cta_label:'准备好了吗？',cta_title:'您的完美印度之旅正在等待',cta_sub:'告诉我们您的梦想。',about_label:'我们的故事',about_title:'源于对印度的热爱',about_story1:'2009年由阿尔朱恩·梅塔创立。',about_story2:'今天，超过40名专家团队遍布印度每个角落。',values_label:'我们的价值观',values_title:'我们所坚守的',team_label:'团队介绍',team_title:'您旅途背后的面孔',team_sub:'将鼠标悬停在卡片上了解更多。',srv_label:'我们提供什么',srv_title:'为您量身打造的旅行',srv_sub:'从文化游到商务旅行。',tab_packages:'套餐旅游',tab_custom:'定制行程',tab_corporate:'商务旅行',custom_label:'专属定制',custom_title:'每个细节，都按您的方式',custom_text:'专业规划师与您一对一合作。',c1:'专属旅行顾问',c2:'24/7 WhatsApp支持',c3:'独家本地向导',c4:'灵活取消政策',c5:'全程协调',corp_label:'企业解决方案',corp_title:'商务出行，升级体验',corp_text:'企业差旅管理和MICE解决方案。',destpage_label:'探索印度',destpage_title:'找到您的完美目的地',destpage_sub:'九个非凡地区。',footer_tagline:'免责声明：此页面上显示的任何内容都不是真实的（图片除外）。这只是一个演示网站。',footer_explore:'探索',footer_destinations:'热门目的地',footer_contact:'联系我们',footer_rights:'版权所有',modal_title:'规划我的行程',modal_sub:'填写您的信息。',form_first:'名字',form_last:'姓氏',form_email:'电子邮箱',form_dest:'目的地',form_date:'日期',form_guests:'人数',form_submit:'发送咨询',filter_all:'全部',filter_heritage:'文化遗产',filter_nature:'自然',filter_adventure:'探险',filter_beaches:'海滩',filter_culture:'文化',filter_city:'城市',dest_discover:'了解更多 →',placeholder_first:'Arjun',placeholder_last:'Mehta',placeholder_email:'you@example.com'},
+  ar:{nav_home:'الرئيسية',nav_dest:'الوجهات',nav_about:'من نحن',nav_services:'الخدمات',nav_book:'احجز الآن',hero_eyebrow:'تأسست 2009 · نيودلهي',hero_title:'اكتشف الروح الخالدة للهند',hero_sub:'رحلات مختارة عبر المعابد العريقة وأسواق البهارات.',btn_book:'خطط لرحلتك',btn_explore:'استكشف',btn_enquire:'ابدأ',btn_all_dest:'جميع الوجهات',stat_years:'سنوات',stat_travelers:'مسافر سعيد',stat_dest:'وجهة',stat_sat:'نسبة الرضا',dest_label:'وجهات مميزة',dest_title:'أماكن ستظل في ذاكرتك',dest_sub:'كل وجهة تحكي قصة مختلفة.',testi_label:'آراء العملاء',testi_title:'أصوات مسافرينا',cta_label:'مستعد؟',cta_title:'رحلتك المثالية في انتظارك',cta_sub:'أخبرنا بحلمك.',about_label:'قصتنا',about_title:'وُلدنا من حب الهند',about_story1:'تأسست 2009 على يد أرجون ميهتا.',about_story2:'اليوم أكثر من 40 خبيراً يغطون كل منطقة.',values_label:'قيمنا',values_title:'ما نؤمن به',team_label:'الفريق',team_title:'الوجوه خلف رحلتك',team_sub:'مرّر فوق البطاقات لمعرفة المزيد.',srv_label:'ما نقدمه',srv_title:'سفر مصمم لك',srv_sub:'من الجولات الثقافية إلى سفر الأعمال.',tab_packages:'باقات',tab_custom:'مخصصة',tab_corporate:'أعمال',custom_label:'مخصص لك',custom_title:'كل تفصيل بطريقتك',custom_text:'مخططون متخصصون يصممون برنامجك.',c1:'مستشار مخصص',c2:'دعم 24/7',c3:'مرشدون محليون',c4:'إلغاء مرن',c5:'تنسيق كامل',corp_label:'حلول الأعمال',corp_title:'سفر الأعمال',corp_text:'إدارة متكاملة لسفر الشركات.',destpage_label:'استكشف الهند',destpage_title:'اعثر على وجهتك المثالية',destpage_sub:'تسع مناطق استثنائية.',footer_tagline:'إخلاء مسؤولية: لا شيء معروض في هذه الصفحة حقيقي فعلياً (باستثناء الصور). هذا مجرد موقع ويب توضيحي.',footer_explore:'استكشاف',footer_destinations:'أفضل الوجهات',footer_contact:'تواصل معنا',footer_rights:'جميع الحقوق محفوظة',modal_title:'خطط لرحلتك',modal_sub:'أدخل بياناتك.',form_first:'الاسم الأول',form_last:'اسم العائلة',form_email:'البريد',form_dest:'الوجهة',form_date:'التاريخ',form_guests:'المسافرون',form_submit:'إرسال',filter_all:'الكل',filter_heritage:'تراث',filter_nature:'طبيعة',filter_adventure:'مغامرة',filter_beaches:'شواطئ',filter_culture:'ثقافة',filter_city:'مدينة',dest_discover:'اكتشف المزيد →',placeholder_first:'أرجون',placeholder_last:'ميهتا',placeholder_email:'you@example.com'},
+  hi:{nav_home:'होम',nav_dest:'गंतव्य',nav_about:'हमारे बारे में',nav_services:'सेवाएं',nav_book:'अभी बुक करें',hero_eyebrow:'स्थापित 2009 · नई दिल्ली',hero_title:'भारत की शाश्वत आत्मा की खोज करें',hero_sub:'प्राचीन मंदिरों, मसाला बाज़ारों और अद्भुत परिदृश्यों के बीच यात्राएं।',btn_book:'यात्रा योजना बनाएं',btn_explore:'गंतव्य देखें',btn_enquire:'शुरू करें',btn_all_dest:'सभी गंतव्य देखें',stat_years:'वर्ष',stat_travelers:'यात्री',stat_dest:'गंतव्य',stat_sat:'संतुष्टि',dest_label:'विशेष गंतव्य',dest_title:'ऐसी जगहें जो याद रहेंगी',dest_sub:'हर गंतव्य एक अलग कहानी कहता है।',testi_label:'प्रशंसापत्र',testi_title:'हमारे यात्रियों की आवाजें',cta_label:'शुरू करें?',cta_title:'आपकी सपनों की यात्रा इंतजार कर रही है',cta_sub:'हमें अपना सपना बताएं।',about_label:'हमारी कहानी',about_title:'भारत के प्यार से जन्मा',about_story1:'2009 में अर्जुन मेहता द्वारा स्थापित।',about_story2:'40+ विशेषज्ञ भारत के हर क्षेत्र में।',values_label:'हमारे मूल्य',values_title:'हम किसके लिए खड़े हैं',team_label:'हमारी टीम',team_title:'आपकी यात्रा के पीछे के चेहरे',team_sub:'अधिक जानने के लिए कार्ड पर होवर करें।',srv_label:'सेवाएं',srv_title:'आपके लिए तैयार यात्रा',srv_sub:'सांस्कृतिक दौरों से कॉर्पोरेट यात्रा तक।',tab_packages:'पैकेज',tab_custom:'कस्टम',tab_corporate:'कॉर्पोरेट',custom_label:'आपके लिए',custom_title:'हर विवरण, आपके तरीके से',custom_text:'विशेषज्ञ योजनाकार आपके साथ काम करते हैं।',c1:'समर्पित सलाहकार',c2:'24/7 WhatsApp सहायता',c3:'एक्सक्लूसिव गाइड',c4:'लचीला रद्दीकरण',c5:'पूर्ण समन्वय',corp_label:'कॉर्पोरेट',corp_title:'व्यापार यात्रा',corp_text:'कॉर्पोरेट यात्रा प्रबंधन और MICE।',destpage_label:'भारत खोजें',destpage_title:'अपना परफेक्ट गंतव्य खोजें',destpage_sub:'नौ असाधारण क्षेत्र।',footer_tagline:'अस्वीकरण: इस पृष्ठ पर दिखाया गया कुछ भी वास्तव में वास्तविक नहीं है (छवियों को छोड़कर)। यह सिर्फ एक प्रदर्शन वेबसाइट है।',footer_explore:'अन्वेषण',footer_destinations:'शीर्ष गंतव्य',footer_contact:'संपर्क',footer_rights:'सर्वाधिकार सुरक्षित',modal_title:'यात्रा योजना',modal_sub:'विवरण भरें।',form_first:'पहला नाम',form_last:'अंतिम नाम',form_email:'ईमेल',form_dest:'गंतव्य',form_date:'तिथि',form_guests:'मेहमान',form_submit:'भेजें',filter_all:'सभी',filter_heritage:'विरासत',filter_nature:'प्रकृति',filter_adventure:'रोमांच',filter_beaches:'समुद्र तट',filter_culture:'संस्कृति',filter_city:'शहर',dest_discover:'और खोजें →',placeholder_first:'अरजुन',placeholder_last:'मेहता',placeholder_email:'you@example.com'},
+  ko:{nav_home:'홈',nav_dest:'여행지',nav_about:'소개',nav_services:'서비스',nav_book:'지금 예약',hero_eyebrow:'설립 2009년 · 뉴델리',hero_title:'인도의 영원한 영혼을 발견하세요',hero_sub:'고대 사원, 향신료 시장, 상상을 초월하는 풍경으로의 여정.',btn_book:'여행 계획하기',btn_explore:'여행지 보기',btn_enquire:'시작하기',btn_all_dest:'모든 여행지 보기',stat_years:'년 서비스',stat_travelers:'여행객',stat_dest:'여행지',stat_sat:'만족도',dest_label:'추천 여행지',dest_title:'기억 속에 남을 장소들',dest_sub:'각 여행지는 저마다의 이야기를 담고 있습니다.',testi_label:'고객 후기',testi_title:'여행자들의 목소리',cta_label:'시작할 준비가 되셨나요?',cta_title:'완벽한 인도 여행이 기다립니다',cta_sub:'꿈을 알려주시면 전문가가 준비해 드립니다.',about_label:'우리의 이야기',about_title:'인도에 대한 사랑에서 탄생',about_story1:'2009년 아르준 메타가 설립.',about_story2:'40명 이상의 전문가가 인도 전역을 커버.',values_label:'가치관',values_title:'우리가 지향하는 것',team_label:'팀',team_title:'여행 뒤에 있는 얼굴들',team_sub:'카드에 마우스를 올려 자세히 보세요.',srv_label:'서비스',srv_title:'당신을 위해 만들어진 여행',srv_sub:'문화 투어부터 기업 출장까지.',tab_packages:'패키지',tab_custom:'맞춤 일정',tab_corporate:'기업',custom_label:'맞춤',custom_title:'모든 세부 사항을 당신의 방식으로',custom_text:'전문 플래너가 완전 맞춤형 일정 설계.',c1:'전담 컨설턴트',c2:'24/7 WhatsApp 지원',c3:'전용 현지 가이드',c4:'유연한 취소',c5:'전체 코디네이션',corp_label:'기업',corp_title:'비즈니스 출장',corp_text:'기업 출장 관리 및 MICE 솔루션.',destpage_label:'인도 탐색',destpage_title:'나만의 완벽한 인도 찾기',destpage_sub:'아홉 개의 특별한 지역.',footer_tagline:'면책 조항: 이 페이지에 표시된 모든 것은 실제로 실제가 아닙니다 (이미지 제외). 이것은 단지 데모 웹사이트입니다.',footer_explore:'탐색',footer_destinations:'인기 여행지',footer_contact:'연락처',footer_rights:'모든 권리 보유',modal_title:'여행 계획',modal_sub:'정보를 입력하세요.',form_first:'이름',form_last:'성',form_email:'이메일',form_dest:'여행지',form_date:'날짜',form_guests:'인원',form_submit:'문의 보내기',filter_all:'전체',filter_heritage:'문화유산',filter_nature:'자연',filter_adventure:'모험',filter_beaches:'해변',filter_culture:'문화',filter_city:'도시',dest_discover:'더 보기 →',placeholder_first:'아르준',placeholder_last:'메타',placeholder_email:'you@example.com'},
+  ru:{nav_home:'Главная',nav_dest:'Направления',nav_about:'О Нас',nav_services:'Услуги',nav_book:'Забронировать',hero_eyebrow:'Осн. 2009 · Нью-Дели',hero_title:'Откройте Вечную Душу Индии',hero_sub:'Тщательно подобранные путешествия среди древних храмов и пряных рынков.',btn_book:'Спланировать',btn_explore:'Исследовать',btn_enquire:'Начать',btn_all_dest:'Все направления',stat_years:'Лет',stat_travelers:'Путешественников',stat_dest:'Направлений',stat_sat:'Удовлетворённость',dest_label:'Лучшие Направления',dest_title:'Места, Которые Останутся С Вами',dest_sub:'Каждое направление рассказывает свою историю.',testi_label:'Отзывы',testi_title:'Голоса Наших Путешественников',cta_label:'Готовы?',cta_title:'Ваше Идеальное Путешествие Ждёт',cta_sub:'Расскажите нам о своей мечте.',about_label:'Наша История',about_title:'Рождённые из Любви к Индии',about_story1:'Основана в 2009 году Арджуном Мехтой.',about_story2:'Сегодня 40+ экспертов охватывают всю Индию.',values_label:'Ценности',values_title:'То, За Что Мы Стоим',team_label:'Команда',team_title:'Лица За Вашим Путешествием',team_sub:'Наведите курсор для подробностей.',srv_label:'Что Мы Предлагаем',srv_title:'Путешествия Для Вас',srv_sub:'От культурных туров до деловых поездок.',tab_packages:'Пакеты',tab_custom:'Индивидуальные',tab_corporate:'Корпоративные',custom_label:'Индивидуально',custom_title:'Каждая Деталь По-вашему',custom_text:'Специалисты создают полностью индивидуальные маршруты.',c1:'Персональный консультант',c2:'Поддержка 24/7',c3:'Эксклюзивные гиды',c4:'Гибкая отмена',c5:'Полная координация',corp_label:'Корпоративные',corp_title:'Деловые Поездки',corp_text:'Корпоративное управление поездками и MICE.',destpage_label:'Исследуйте Индию',destpage_title:'Найдите Своё Место в Индии',destpage_sub:'Девять удивительных регионов.',footer_tagline:'Отказ от ответственности: Ничто показанное на этой странице не является реальным (кроме изображений). Это просто демонстрационный сайт.',footer_explore:'Изучить',footer_destinations:'Топ Направлений',footer_contact:'Контакты',footer_rights:'Все права защищены',modal_title:'Спланировать Поездку',modal_sub:'Заполните данные.',form_first:'Имя',form_last:'Фамилия',form_email:'Почта',form_dest:'Направление',form_date:'Дата',form_guests:'Гостей',form_submit:'Отправить',filter_all:'Все',filter_heritage:'Наследие',filter_nature:'Природа',filter_adventure:'Приключения',filter_beaches:'Пляжи',filter_culture:'Культура',filter_city:'Город',dest_discover:'Узнать больше →',placeholder_first:'Арджун',placeholder_last:'Мехта',placeholder_email:'you@example.com'},
+};
+
+// ─── CONTENT DATA ──────────────────────────────────────────────────────────
+const HERO_SLIDES=[
+  {img:'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1600&q=80',alt:'Taj Mahal'},
+  {img:'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600&q=80',alt:'Rajasthan'},
+  {img:'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&q=80',alt:'Kerala'},
+  {img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80',alt:'Himalayas'},
+];
+
+const ALL_DESTINATIONS=[
+  {id:'rajasthan',name:'Rajasthan',state:'Rajasthan',category:'heritage',tag_key:'filter_heritage',rating:'4.9',duration:'7–14 days',best:'Oct–Mar',img:'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80',color:'#c9813a',desc_en:'Palaces rising from golden sand, forts that held back empires, and an evening sky painted amber by camel silhouettes. Rajasthan is India at its most theatrical.',desc_es:'Palacios que emergen de arena dorada, fortalezas que resistieron imperios y atardeceres pintados de ámbar. Rajastán es India en su máxima expresión.',desc_fr:'Des palais surgissant du sable doré, des forteresses et un ciel du soir peint d\'ambre. Le Rajasthan est l\'Inde à son apogée.',desc_de:'Paläste, die aus goldenem Sand emporsteigen, Festungen, die Reiche zurückhielten, und ein Abendhimmel in Bernstein, gemalt von Kamel-Silhouetten. Rajasthan zeigt Indien von seiner theatralischsten Seite.',desc_it:'Palazzi che emergono dalla sabbia dorata, fortezze che hanno resistito agli imperi e un cielo serale dipinto d\'ambra dalle silhouette dei cammelli. Il Rajasthan è l\'India nel suo modo più teatrale.',desc_pt:'Palácios que surgem da areia dourada, fortes que resistiram a impérios e um céu noturno pintado de âmbar por silhuetas de camelos. Rajasthan é a Índia em seu lado mais teatral.',desc_ja:'金色の砂漠からそびえる宮殿、帝国を退けた砦、ラクダのシルエットが琥珀色に染める夕暮れの空。ラジャスタンはインドの劇的な顔そのものです。',desc_zh:'宫殿从金色沙丘中升起，堡垒抵御过帝国，黄昏的天空被骆驼剪影染成琥珀色。拉贾斯坦呈现印度最戏剧化的一面。',desc_ar:'قصور ترتفع من رمال ذهبية، حصون صدّت الإمبراطوريات، وسماء مسائية مطلية بالكهرمان عبر ظلال الجمال. راجستان هي الهند في أكثر صورها الدرامية.',desc_hi:'सुनहरी रेत से उभरते महल, किले जिन्होंने सम्राटों को रोका, और ऊंट की परछाइयों से रंजित सांवली शाम। राजस्थान भारत का सबसे नाटकीय रूप है।',desc_ko:'황금빛 모래 위로 솟아오른 궁전들, 제국을 막아낸 요새들, 낙타 실루엣이 호박빛으로 물들이는 저녁 하늘. 라자스탄은 인도의 가장 극적인 모습입니다.',desc_ru:'Дворцы, поднимающиеся из золотого песка, крепости, отстоявшие империи, и вечернее небо, расписанное янтарем силуэтами верблюдов. Раджастхан — это Индия в самом театральном виде.',highlights:[{icon:'🏯',label:'Must See',val:'Amber Fort'},{icon:'📅',label:'Best Time',val:'Oct – Mar'},{icon:'👥',label:'Group Size',val:'2–15 pax'},{icon:'💰',label:'From',val:'₹62,000'}]},
+  {id:'kerala',name:'Kerala',state:'Kerala',category:'nature',tag_key:'filter_nature',rating:'4.8',duration:'8–12 days',best:'Sep–Mar',img:'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80',color:'#3a8a4f',desc_en:'God\'s Own Country whispers through rustling coconut palms, winding houseboat canals, and Ayurvedic stillness. A journey that heals as it reveals.',desc_es:'El país de Dios susurra entre palmeras, canales de casa flotante y la tranquilidad del Ayurveda. Un viaje que sana a medida que revela.',desc_fr:'Le pays de Dieu murmure à travers les palmiers et les canaux. Un voyage qui guérit au fil de ses révélations.',desc_de:'God\'s Own Country flüstert durch raschelnde Kokospalmen, verwinkelte Hausboot-Kanäle und ayurvedische Stille. Eine Reise, die heilt, während sie sich entfaltet.',desc_it:'Il Paese di Dio sussurra tra palme, canali di houseboat e la quiete ayurvedica. Un viaggio che guarisce mentre si svela.',desc_pt:'O País de Deus sussurra por palmeiras, canais de houseboat e a quietude ayurvédica. Uma jornada que cura enquanto se revela.',desc_ja:'神の国は、ざわめくココナッツの木々、曲がりくねるハウスボートの運河、アーユルヴェーダの静けさを通してささやきます。旅は明らかになるほど癒されます。',desc_zh:'上帝之国在沙沙作响的椰林中低语，穿过曲折的船屋运河和阿育吠陀的宁静。旅程在揭示中疗愈。',desc_ar:'تشدو أرض الآلهة بين جوز الهند المتموج والقنوات الملتوية والقاطع الهادئ لعلاج الأيورفيدا. رحلة تشفي وتكشف نفسها في الوقت ذاته.',desc_hi:'देवताओं की धरती सरकती नारियल की डालियों, घुमावदार हाउसबोट नहरों और आयुर्वेदिक शांति के बीच धीरे से फुसफुसाती है। एक यात्रा जो प्रकट होने पर ही ठीक करती है।',desc_ko:'신의 나라가 바스락거리는 코코넛 야자, 구불구불한 하우스보트 운하, 아유르베다의 고요함 속에서 속삭입니다. 여행은 드러날수록 치유됩니다.',desc_ru:'Страна Бога шепчет сквозь шелест кокосовых пальм, извилистые каналы плавучих домов и аюрведическое спокойствие. Путешествие лечит, пока раскрывается.',highlights:[{icon:'🛶',label:'Signature',val:'Houseboat Stay'},{icon:'📅',label:'Best Time',val:'Sep – Mar'},{icon:'🌿',label:'Wellness',val:'Ayurveda Retreat'},{icon:'💰',label:'From',val:'₹89,000'}]},
+  {id:'himalayas',name:'Himalayas',state:'Himachal / Sikkim',category:'adventure',tag_key:'filter_adventure',rating:'4.9',duration:'10–21 days',best:'Apr–Jun, Sep–Nov',img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',color:'#4a7fa0',desc_en:'Ancient monasteries cling to cliff faces above clouds. Rhododendron forests give way to glacial ridges where sunrise turns Kanchenjunga rose-gold.',desc_es:'Monasterios antiguos se aferran a acantilados sobre las nubes. Bosques de rododendros dan paso a crestas glaciales.',desc_fr:'Des monastères anciens s\'accrochent aux falaises au-dessus des nuages, avant les crêtes glaciaires.',desc_de:'Uralte Klöster kleben an Felswänden oberhalb der Wolken. Rhododendronwälder weichen Gletscherrücken, wo der Sonnenaufgang den Kanchenjunga rosengold färbt.',desc_it:'Antichi monasteri aggrappati alle pareti di roccia sopra le nuvole. Le foreste di rododendri lasciano spazio a creste glaciali dove l\'alba tinge il Kanchenjunga di rosa dorato.',desc_pt:'Mosteiros antigos agarrados a penhascos acima das nuvens. Florestas de rododendros dão lugar a cristas glaciais onde o nascer do sol pinta o Kanchenjunga de rosa-dourado.',desc_ja:'古い寺院が雲上の断崖にへばりつき、シャクナゲの森が氷河の尾根へと続きます。日の出がカンチェンジュンガを薔薇色に染める場所です。',desc_zh:'古老的寺院依附在云端之上的悬崖上。杜鹃花林让位于冰川脊，日出将卡钦张加染成玫瑰金。',desc_ar:'أديرة قديمة تتشبث بوجوه الصخور فوق السحب. غابات الزهرة الوردية تعطي طريقها إلى حافات جليدية حيث يشعل شروق الشمس كانشنجونغا بالذهب الوردي.',desc_hi:'प्राचीन मठ बादलों के ऊपर चट्टानों से चिपके हैं। रोडोडेंड्रन के वन हिमनदी की कड़ियों में बदलते हैं, जहां सूर्योदय कंचनजंगा को गुलाबी सोने में रंग देता है।',desc_ko:'고대 수도원이 구름 위 절벽에 매달려 있습니다. 철쭉 숲은 빙하 능선으로 이어지고, 일출에 칸첸중가가 장미빛 금색으로 물듭니다.',desc_ru:'Древние монастыри цепляются за скалы над облаками. Рододендроновые леса уступают место ледниковым гребням, где рассвет окрашивает Канченджангу в розово-золото.',highlights:[{icon:'⛺',label:'Adventure',val:'High-Altitude Trek'},{icon:'📅',label:'Best Time',val:'Apr–Jun, Sep–Nov'},{icon:'🏔️',label:'Altitude',val:'Up to 3,636m'},{icon:'💰',label:'From',val:'₹1,15,000'}]},
+  {id:'goa',name:'Goa',state:'Goa',category:'beaches',tag_key:'filter_beaches',rating:'4.6',duration:'5–8 days',best:'Nov–Feb',img:'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80',color:'#c47a3a',desc_en:'Portuguese-era whitewashed churches, warm Arabian Sea waters, and spice-laced seafood eaten barefoot at sunset. Goa offers an effortless, timeless escape.',desc_es:'Iglesias encaladas de la era portuguesa, aguas cálidas y mariscos especiados al atardecer. Goa es un escape perfecto.',desc_fr:'Eglises blanchies à la chaux, mer d\'Arabie et fruits de mer épicés au coucher du soleil. Goa, une escapade intemporelle.',desc_de:'Weiß getünchte Kirchen aus der portugiesischen Zeit, warme Arabische-Meer-Wellen und mit Gewürzen gespickte Meeresfrüchte, barfuß am Sonnenuntergang. Goa bietet eine mühelose, zeitlose Flucht.',desc_it:'Chiese im portughesischen Stil, acque tiepide del Mare Arabico e frutti di mare speziati gustati a piedi nudi al tramonto. Goa offre una fuga senza sforzo e senza tempo.',desc_pt:'Igrejas caiadas da era portuguesa, águas mornas do Mar Arábico e frutos do mar temperados com especiarias comidos descalços ao pôr do sol. Goa oferece um refúgio atemporal e sem esforço.',desc_ja:'ポルトガル時代の白壁の教会、温かいアラビア海の潮、夕暮れに素足で食べる香辛料香るシーフード。ゴアは気負わない永遠の逃避です。',desc_zh:'葡式白墙教堂，温暖的阿拉伯海水，落日下赤脚吃着香料海鲜。果阿是一场不费力、永恒的逃离。',desc_ar:'كنائس مطلية باللون الأبيض من الحقبة البرتغالية، مياه بحر العرب الدافئة، ومأكولات بحرية متبلة بالأعشاب تؤكل حافية القدمين عند الغروب. غوا تُقدم مهرباً خالداً بلا جهد.',desc_hi:'पुर्तगाली काल की चूना-लिपटी चर्चें, गर्म अरबी सागर की लहरें, और संध्या में जूते बिना मसालेदार समुद्री भोजन. गोवा एक सहज, शाश्वत पलायन है।',desc_ko:'포르투갈 시대의 백색 교회, 따뜻한 아라비아해 물결, 일몰에 맨발로 즐기는 향신료 바닷가재. 고아는 부담 없는 영원한 탈출구입니다。',desc_ru:'Белоснежные церкви португальской эпохи, тёплые воды Аравийского моря и пряные морепродукты босиком на закате. Гоа — это лёгкий вечный побег.',highlights:[{icon:'🏖️',label:'Best Beach',val:'Palolem'},{icon:'📅',label:'Best Time',val:'Nov – Feb'},{icon:'🍹',label:'Vibe',val:'Laid-back Luxury'},{icon:'💰',label:'From',val:'₹45,000'}]},
+  {id:'varanasi',name:'Varanasi',state:'Uttar Pradesh',category:'culture',tag_key:'filter_culture',rating:'4.7',duration:'3–5 days',best:'Oct–Mar',img:'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80',color:'#c4563a',desc_en:'One of the world\'s oldest living cities, Varanasi pulses with ritual fire, incense, and the Ganga\'s eternal flow. A place that forces you to confront life itself.',desc_es:'Una de las ciudades más antiguas del mundo, Varanasi vibra con fuego ritual y el eterno fluir del Ganges.',desc_fr:'L\'une des plus vieilles villes vivantes du monde, Varanasi pulse avec des feux rituels et le Gange éternel.',desc_de:'Eine der ältesten lebenden Städte der Welt, Varanasi pulsiert mit rituellem Feuer, Räucherstäbchen und dem ewigen Fluss Ganges. Ein Ort, der dich dem Leben selbst gegenüberstellt.',desc_it:'Una delle città viventi più antiche del mondo, Varanasi pulsa con fuoco rituale, incenso e il flusso eterno del Gange. Un luogo che ti costringe a confrontarti con la vita.',desc_pt:'Uma das cidades vivas mais antigas do mundo, Varanasi pulsa com fogo ritual, incenso e o fluxo eterno do Ganges. Um lugar que te confronta com a vida.',desc_ja:'世界最古級の生きた街のひとつ、ヴァラーナシーは儀式の火と線香、永遠に流れるガンジスの鼓動で満ちています。人生そのものと向き合う場所です。',desc_zh:'世界上最古老的活城之一，瓦拉纳西随着仪式之火、香烟和恒流恒河跳动。一个让你直面生命本身的地方。',desc_ar:'واحدة من أقدم المدن الحية في العالم، فاراناسي تنبض بالنار الطقسية، والبخور، وتدفق الغانج الأبدي. مكان يجبرك على مواجهة الحياة نفسها.',desc_hi:'दुनिया के सबसे पुराने जीवित शहरों में से एक, वाराणसी अनुष्ठानिक अग्नि, अगरबत्ती की खुशबू, और गंगा के अनंत प्रवाह से धड़कता है। एक ऐसी जगह जो आपको स्वयं जीवन का सामना कराती है।',desc_ko:'세계에서 가장 오래된 살아 있는 도시 중 하나인 바라나시는 의식의 불, 향, 영원의 흐름 갠지스강으로 펄떡입니다. 삶 그 자체와 마주하게 하는 곳입니다.',desc_ru:'Один из самых древних живых городов мира, Варанаси пульсирует ритуальным огнём, благовониями и вечным потоком Ганга. Место, где тебя заставляют встретиться с самой жизнью.',highlights:[{icon:'🪔',label:'Ritual',val:'Ganga Aarti Ceremony'},{icon:'📅',label:'Best Time',val:'Oct – Mar'},{icon:'🛶',label:'Experience',val:'Dawn Boat Ride'},{icon:'💰',label:'From',val:'₹28,000'}]},
+  {id:'mumbai',name:'Mumbai',state:'Maharashtra',category:'city',tag_key:'filter_city',rating:'4.5',duration:'3–5 days',best:'Nov–Feb',img:'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&q=80',color:'#3a5fa0',desc_en:'India\'s maximum city never slows. The Gateway of India at dawn, tiffin boxes zipping across the city, Bollywood glamour, and the world\'s best street chaat.',desc_es:'La ciudad máxima de India nunca se detiene. El Gateway of India al amanecer y el glamour de Bollywood.',desc_fr:'La grande métropole indienne ne ralentit jamais. La Gateway of India à l\'aube et le glamour de Bollywood.',desc_de:'Indiens Maximum City kommt nie zur Ruhe. Das Gateway of India im Morgengrauen, Dabbas, die durch die Stadt sausen, Bollywood-Glamour und das beste Straßenchaat der Welt.',desc_it:'La città massima dell\'India non rallenta mai. Il Gateway of India all\'alba, i tiffin che sfrecciano per la città, il glamour di Bollywood e il miglior chaat di strada del mondo.',desc_pt:'A máxima cidade da Índia nunca desacelera. O Gateway of India ao amanhecer, os tiffins cruzando a cidade, o glamour de Bollywood e o melhor chaat de rua do mundo.',desc_ja:'インド最大の都市は決して止まらない。夜明けのゲートウェイ・オブ・インディア、街を駆け抜けるティフィン、ボリウッドの魅力、世界最高のストリートチャート。',desc_zh:'印度的最大城市从不慢下来。黎明时分的印度之门，穿梭城市的提芬盒，宝莱坞魅力，以及世界最棒的街头查特。',desc_ar:'أكبر مدينة في الهند لا تهدأ أبداً. بوابة الهند عند الفجر، صناديق الطعام تتسابق في المدينة، بريق بوليوود، وأفضل تشات شارع في العالم.',desc_hi:'भारत का सबसे बड़ा शहर कभी धीमा नहीं होता। सुबह के समय गेटवे ऑफ इंडिया, शहर में दौड़ते टिफिन, बॉलीवुड ग्लैमर और विश्व का सर्वश्रेष्ठ स्ट्रीट चाट।',desc_ko:'인도의 최대 도시는 결코 멈추지 않습니다. 새벽의 게이트웨이 오브 인디아, 도시를 가로지르는 티핀, 발리우드의 화려함, 세계 최고의 스트릿 차트.',desc_ru:'Максимальный город Индии никогда не замедляется. Ворота Индии на рассвете, тэффины, мчащиеся по городу, гламур Болливуда и лучший уличный чат в мире.',highlights:[{icon:'🏛️',label:'Icon',val:'Gateway of India'},{icon:'📅',label:'Best Time',val:'Nov – Feb'},{icon:'🎬',label:'Culture',val:'Bollywood Tour'},{icon:'💰',label:'From',val:'₹25,000'}]},
+  {id:'hampi',name:'Hampi',state:'Karnataka',category:'heritage',tag_key:'filter_heritage',rating:'4.8',duration:'3–4 days',best:'Oct–Feb',img:'https://images.unsplash.com/photo-1580465446161-7b58902c37b6?w=800&q=80',color:'#a07a3a',desc_en:'Boulders the size of houses scattered across a mythological landscape. The ruined Vijayanagara Empire at Hampi feels like walking through a fever dream of history.',desc_es:'Piedras del tamaño de casas dispersas en un paisaje mitológico. Las ruinas de Hampi son como caminar en un sueño histórico.',desc_fr:'Des rochers de la taille de maisons dans un paysage mythologique. Les ruines de Hampi ressemblent à un rêve historique.',desc_de:'Felsbrocken in Hausgröße verstreut über eine mythische Landschaft. Die Ruinen des Vijayanagara-Imperiums in Hampi fühlen sich an wie ein fieberhafter Geschichtstraum.',desc_it:'Massi grandi quanto case sparsi in un paesaggio mitologico. Le rovine dell\'impero Vijayanagara a Hampi sembrano camminare in un sogno febbrile di storia.',desc_pt:'Pedras do tamanho de casas espalhadas por uma paisagem mitológica. As ruínas do Império Vijayanagara em Hampi parecem caminhar por um sonho febril de história.',desc_ja:'家ほどの大きさの巨岩が神話のような景色に点在する。ハンピのヴィジャヤナガル帝国の遺跡は、歴史の熱病の夢を歩くようだ。',desc_zh:'巨石如房屋般散落在神话般的景色中。哈姆比的维贾亚纳加尔帝国遗迹仿佛行走在历史的热病梦里。',desc_ar:'صخور بحجم المنازل متناثرة عبر منظر أسطوري. تبدو آثار إمبراطورية فيجايناجار في هامبي كأنك تمشي في حلم هستيري من التاريخ.',desc_hi:'घरों जितने बड़े चट्टानी टुकड़े एक पौराणिक परिदृश्य में बिखरे हुए। हम्पी में विजयनगर साम्राज्य की खंडहरें मानो इतिहास के बुखार सपने में चलने जैसी हैं।',desc_ko:'집만 한 바위가 신화 같은 풍경에 흩어져 있습니다. 함피의 비자야나가르 제국 유적은 역사의 열병 꿈을 걷는 듯합니다.',desc_ru:'Скалы размером с дом разбросаны по мифическому ландшафту. Руины империи Виджаянагара в Хампи похожи на прогулку по лихорадочному историческому сну.',highlights:[{icon:'🏛️',label:'UNESCO',val:'World Heritage Site'},{icon:'📅',label:'Best Time',val:'Oct – Feb'},{icon:'🚴',label:'Explore',val:'Cycling the Ruins'},{icon:'💰',label:'From',val:'₹32,000'}]},
+  {id:'ladakh',name:'Ladakh',state:'Jammu & Kashmir',category:'adventure',tag_key:'filter_adventure',rating:'4.9',duration:'8–14 days',best:'Jun–Sep',img:'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&q=80',color:'#6a4fa0',desc_en:'A moonscape peppered with prayer flags, ancient gompas, and the highest motorable road in the world. Ladakh is not just a place — it\'s an altered state of being.',desc_es:'Un paisaje lunar salpicado de banderas de oración y los gompas más antiguos. Ladakh es un estado alterado del ser.',desc_fr:'Un paysage lunaire parsemé de drapeaux de prière et de gompas anciens. Le Ladakh est un état d\'être altéré.',desc_de:'Eine Mondlandschaft gesprenkelt mit Gebetsfahnen, alten Gompas und der höchsten befahrbaren Straße der Welt. Ladakh ist nicht nur ein Ort — es ist ein veränderter Bewusstseinszustand.',desc_it:'Un paesaggio lunare cosparso di bandiere di preghiera, gompa antichi e la strada percorribile più alta del mondo. Ladakh non è solo un luogo, è uno stato mentale trasformato.',desc_pt:'Uma paisagem lunar salpicada de bandeiras de oração, gompas antigos e a estrada trafegável mais alta do mundo. Ladakh não é apenas um lugar — é um estado de consciência alterado.',desc_ja:'祈りの旗が揺れる月面のような風景、古いゴンパ、世界最高の車道。ラダックはただの場所ではなく、変容した意識の状態です。',desc_zh:'月球般的景观点缀着经幡、古老的嘎隆，世界最高可通行公路。拉达克不仅是一个地方，而是一种改变的存在状态。',desc_ar:'منظر قمرِي مرصّع بأعلام الصلاة، جومبا قديمة، وأعلى طريق يمكن القيادة عليه في العالم. لداخ ليست مكانًا فقط — إنها حالة وعي متغيرة.',desc_hi:'एक चंद्रमा जैसा परिदृश्य प्रार्थना झंडों, प्राचीन गोम्पों, और दुनिया की सबसे ऊँची मोटर योग्य सड़क से सजे। लद्दाख सिर्फ जगह नहीं है — यह एक परिवर्तित चेतना की स्थिति है।',desc_ko:'기도 깃발이 흩날리는 달 표면 같은 풍경, 고대 곰파, 세계에서 가장 높은 자동차 도로. 라다크는 단순한 장소가 아니라 변화된 의식 상태입니다.',desc_ru:'Лунный пейзаж, усыпанный молитвенными флагами, древними гомпами и самой высокой в мире дорогой, пригодной для машин. Ладакх — это не просто место, это измененное состояние сознания.',highlights:[{icon:'🏍️',label:'Road Trip',val:'Khardung La Pass'},{icon:'📅',label:'Best Time',val:'Jun – Sep'},{icon:'🙏',label:'Culture',val:'Buddhist Monasteries'},{icon:'💰',label:'From',val:'₹98,000'}]},
+  {id:'andaman',name:'Andaman Islands',state:'Andaman & Nicobar',category:'beaches',tag_key:'filter_beaches',rating:'4.7',duration:'6–10 days',best:'Oct–May',img:'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80',color:'#3a8a8a',desc_en:'Emerald water so clear you can see the coral thirty feet below. Pristine beaches far from the tourist trail, bioluminescent bays, and the silence of paradise.',desc_es:'Aguas tan cristalinas que se puede ver el coral a diez metros de profundidad. Playas vírgenes y bahías bioluminiscentes.',desc_fr:'Des eaux si claires qu\'on peut voir le corail à dix mètres. Des plages vierges et des baies bioluminescentes.',desc_de:'Eine smaragdgrüne Wasseroberfläche so klar, dass man den Korallenboden dreißig Fuß tief sehen kann. Unberührte Strände fernab der Touristenpfade, biolumineszente Buchten und das Schweigen des Paradieses.',desc_it:'Acque smeraldo così limpide da vedere il corallo a dieci metri di profondità. Spiagge incontaminate lontane dalle rotte turistiche, baie bioluminescenti e il silenzio del paradiso.',desc_pt:'Águas verde-esmeralda tão claras que é possível ver o coral a dez metros de profundidade. Praias intocadas longe do circuito turístico, baías bioluminescentes e o silêncio do paraíso.',desc_ja:'珊瑚が30フィート下まで見えるほど澄んだエメラルドの海。観光客の少ない手つかずのビーチ、発光する入り江、楽園の静けさ。',desc_zh:'翠绿的海水清澈见底，三十英尺下的珊瑚可见。远离旅游路线的原始海滩，发光的海湾，以及天堂般的寂静。',desc_ar:'مياه زمردية صافية ترى الشعاب المرجانية على عمق عشرة أمتار. شواطئ بكر بعيداً عن دروب السياح، وخليجان متوهجة في الظلام، وصمت الجنة.',desc_hi:'पन्ने सी पानी इतनी साफ़ कि आप तीस फीट नीचे चरों को देख सकते हैं। पर्यटक मार्ग से दूर निर्विघ्न समुद्र तट, बायोलुमिनसेंट खाड़ी, और स्वर्ग की चुप्पी।',desc_ko:'산호가 30피트 아래까지 보일 정도로 투명한 에메랄드빛 바닷물. 관광객의 발길이 닿지 않는 원시 해변, 생물발광 만, 그리고 천국의 정적.',desc_ru:'Изумрудная вода настолько прозрачная, что кораллы видно на глубине десяти метров. Нетронутые пляжи вдали от туристических троп, биолюминесцентные заливы и тишина рая.',highlights:[{icon:'🤿',label:'Activity',val:'Scuba Diving'},{icon:'📅',label:'Best Time',val:'Oct – May'},{icon:'🌊',label:'Beach',val:'Radhanagar Beach'},{icon:'💰',label:'From',val:'₹72,000'}]},
+];
+
+// Featured (first 3 for home page)
+const HIGHLIGHT_LABELS={
+  'Must See':{es:'Imprescindible',fr:'Incontournable',de:'Unbedingt sehen',it:'Da vedere',pt:'Imperdível',ja:'必見',zh:'必看',ar:'يجب رؤيته',hi:'जरूर देखें',ko:'꼭 봐야 할 곳',ru:'Обязательно к посещению'},
+  'Best Time':{es:'Mejor época',fr:'Meilleure période',de:'Beste Zeit',it:'Periodo migliore',pt:'Melhor época',ja:'最適時期',zh:'最佳时间',ar:'أفضل وقت',hi:'सबसे अच्छा समय',ko:'최고의 시기',ru:'Лучшее время'},
+  'Group Size':{es:'Tamaño de grupo',fr:'Taille de groupe',de:'Gruppengröße',it:'Dimensione del gruppo',pt:'Tamanho do grupo',ja:'グループサイズ',zh:'团队规模',ar:'حجم المجموعة',hi:'समूह आकार',ko:'그룹 크기',ru:'Размер группы'},
+  'From':{es:'Desde',fr:'À partir de',de:'Ab',it:'Da',pt:'A partir de',ja:'から',zh:'起',ar:'من',hi:'प्रति',ko:'부터',ru:'От'},
+  'Signature':{es:'Firma',fr:'Signature',de:'Signature',it:'Caratteristica',pt:'Assinatura',ja:'シグニチャー',zh:'特色',ar:'توقيع',hi:'विशेष',ko:'시그니처',ru:'Фирменный'},
+  'Wellness':{es:'Bienestar',fr:'Bien-être',de:'Wellness',it:'Benessere',pt:'Bem-estar',ja:'ウェルネス',zh:'健康',ar:'رفاهية',hi:'वेलनेस',ko:'웰니스',ru:'Wellness'},
+  'Adventure':{es:'Aventura',fr:'Aventure',de:'Abenteuer',it:'Avventura',pt:'Aventura',ja:'冒険',zh:'冒险',ar:'مغامرة',hi:'रोमांच',ko:'모험',ru:'Приключение'},
+  'Experience':{es:'Experiencia',fr:'Expérience',de:'Erlebnis',it:'Esperienza',pt:'Experiência',ja:'体験',zh:'体验',ar:'تجربة',hi:'अनुभव',ko:'경험',ru:'Ощущение'},
+  'Beach':{es:'Playa',fr:'Plage',de:'Strand',it:'Spiaggia',pt:'Praia',ja:'ビーチ',zh:'海滩',ar:'شاطئ',hi:'समुद्र तट',ko:'해변',ru:'Пляж'},
+  'Icon':{es:'Icono',fr:'Icône',de:'Symbol',it:'Icona',pt:'Ícone',ja:'アイコン',zh:'图标',ar:'أيقونة',hi:'चिह्न',ko:'아이콘',ru:'Иконка'},
+};
+const HIGHLIGHT_VALUES={
+  'Houseboat Stay':{es:'Noche en houseboat',fr:'Nuit en houseboat',de:'Hausbootübernachtung',it:'Notte in houseboat',pt:'Noite em houseboat',ja:'ハウスボート宿泊',zh:'船屋住宿',ar:'إقامة في هاوس بوت',hi:'हाउसबोट में रात',ko:'하우스보트 숙박',ru:'Ночь на хаусботе'},
+  'Ayurveda Retreat':{es:'Retiro Ayurvédico',fr:'Retraite Ayurvédique',de:'Ayurveda-Retreat',it:'Ritiro ayurvedico',pt:'Retiro Ayurvédico',ja:'アーユルヴェーダリトリート',zh:'阿育吠陀静修',ar:'منتجع أيورفيدا',hi:'आयुर्वेद रिट्रीट',ko:'아유르베다 리트릿',ru:'Аюрведический ретрит'},
+  'High-Altitude Trek':{es:'Trek de gran altitud',fr:'Trek en haute altitude',de:'Höhen-Trek',it:'Trek ad alta quota',pt:'Trekking de alta altitude',ja:'高地トレッキング',zh:'高海拔徒步',ar:'تسلق عالي الارتفاع',hi:'उच्च ऊँचाई ट्रेक',ko:'고지대 트레킹',ru:'Высотный трек'},
+  'World Heritage Site':{es:'Patrimonio Mundial',fr:'Patrimoine mondial',de:'Welterbe',it:'Patrimonio dell’umanità',pt:'Património Mundial',ja:'世界遺産',zh:'世界遗产',ar:'موقع تراث عالمي',hi:'विश्व धरोहर स्थल',ko:'세계 유산',ru:'Объект всемирного наследия'},
+  'Road Trip':{es:'Viaje por carretera',fr:'Road trip',de:'Roadtrip',it:'Viaggio su strada',pt:'Road trip',ja:'ロードトリップ',zh:'公路之旅',ar:'رحلة طريق',hi:'रोड ट्रिप',ko:'로드 트립',ru:'Автопутешествие'},
+  'Scuba Diving':{es:'Buceo',fr:'Plongée',de:'Tauchen',it:'Immersione',pt:'Mergulho',ja:'スキューバダイビング',zh:'潜水',ar:'الغوص',hi:'स्कूबा डाइविंग',ko:'스쿠버 다이빙',ru:'Дайвинг'},
+  'Dawn Boat Ride':{es:'Paseo en bote al amanecer',fr:"Balade en bateau à l'aube",de:'Bootsfahrt bei Sonnenaufgang',it:"Giro in barca all'alba",pt:'Passeio de barco ao amanhecer',ja:'夜明けのボートライド',zh:'黎明船游',ar:'جولة بالقارب عند الفجر',hi:'भोर की नाव यात्रा',ko:'새벽 보트 타기',ru:'Прогулка на лодке на рассвете'},
+};
+
+const MONTHS={
+  'Jan':{es:'Ene',fr:'Jan',de:'Jan',it:'Gen',pt:'Jan',ja:'1月',zh:'1月',ar:'كال',hi:'जन',ko:'1월',ru:'Янв'},
+  'Feb':{es:'Feb',fr:'Fév',de:'Feb',it:'Feb',pt:'Fev',ja:'2月',zh:'2月',ar:'فبر',hi:'फ़र',ko:'2월',ru:'Фев'},
+  'Mar':{es:'Mar',fr:'Mar',de:'Mär',it:'Mar',pt:'Mar',ja:'3月',zh:'3月',ar:'مار',hi:'मार',ko:'3월',ru:'Мар'},
+  'Apr':{es:'Abr',fr:'Avr',de:'Apr',it:'Apr',pt:'Abr',ja:'4月',zh:'4月',ar:'إبر',hi:'अप्र',ko:'4월',ru:'Апр'},
+  'May':{es:'May',fr:'Mai',de:'Mai',it:'Mag',pt:'Maio',ja:'5月',zh:'5月',ar:'أيا',hi:'मई',ko:'5월',ru:'Май'},
+  'Jun':{es:'Jun',fr:'Juin',de:'Juni',it:'Giu',pt:'Jun',ja:'6月',zh:'6月',ar:'يون',hi:'जून',ko:'6월',ru:'Июн'},
+  'Jul':{es:'Jul',fr:'Juil',de:'Juli',it:'Lug',pt:'Jul',ja:'7月',zh:'7月',ar:'يول',hi:'जुल',ko:'7월',ru:'Июл'},
+  'Aug':{es:'Ago',fr:'Août',de:'Aug',it:'Ago',pt:'Ago',ja:'8月',zh:'8月',ar:'أغس',hi:'अग',ko:'8월',ru:'Авг'},
+  'Sep':{es:'Sep',fr:'Sep',de:'Sep',it:'Set',pt:'Set',ja:'9月',zh:'9月',ar:'سبت',hi:'सित',ko:'9월',ru:'Сен'},
+  'Oct':{es:'Oct',fr:'Oct',de:'Okt',it:'Ott',pt:'Out',ja:'10月',zh:'10月',ar:'أكت',hi:'अक्ट',ko:'10월',ru:'Окт'},
+  'Nov':{es:'Nov',fr:'Nov',de:'Nov',it:'Nov',pt:'Nov',ja:'11月',zh:'11月',ar:'نوف',hi:'नव',ko:'11월',ru:'Ноя'},
+  'Dec':{es:'Dic',fr:'Déc',de:'Dez',it:'Dic',pt:'Dez',ja:'12月',zh:'12月',ar:'ديس',hi:'दिस',ko:'12월',ru:'Дек'},
+};
+const FEATURED_DEST=ALL_DESTINATIONS.slice(0,3);
+
+const TESTIMONIALS=[
+  {text_en:"Every detail was handled with such care. The private sunrise at Taj Mahal — just our family and the morning mist — is something I'll never forget.",text_es:"Cada detalle fue atendido con tanto cuidado. El amanecer privado en el Taj Mahal es algo que nunca olvidaré.",text_fr:"Chaque détail a été géré avec soin. Le lever de soleil privé au Taj Mahal restera gravé à jamais.",text_de:"Jedes Detail wurde so sorgfältig behandelt. Der private Sonnenaufgang am Taj Mahal ist unvergesslich.",text_it:"Ogni dettaglio è stato curato con tanta attenzione. L'alba privata al Taj Mahal — solo la nostra famiglia e la nebbia mattutina — è qualcosa che non dimenticherò mai.",text_pt:"Cada detalhe foi tratado com tanto cuidado. O nascer do sol privado no Taj Mahal — só nossa família e a névoa matinal — é algo que nunca vou esquecer.",text_ja:"すべての細部が丁寧に扱われました。タージマハルでのプライベートな朝日は、家族だけと朝の霧だけという忘れられない体験でした。",text_zh:"每个细节都处理得非常用心。泰姬陵的私人日出——只有我们的家人和晨雾——是我永远不会忘记的。",text_ar:"تم العناية بكل تفصيل بعناية فائقة. شروق الشمس الخاص عند تاج محل — فقط عائلتنا وضباب الصباح — شيء لن أنساه أبداً.",text_hi:"हर विवरण को इतनी सावधानी से संभाला गया था। ताज महल पर निजी सूर्योदय — सिर्फ़ हमारा परिवार और सुबह की धुंध — कुछ ऐसा जिसे मैं कभी नहीं भूलूँगा।",text_ko:"모든 세부 사항이 매우 섬세하게 처리되었습니다. 타지마할의 프라이빗 일출 — 우리 가족과 아침 안개만 있는 — 잊을 수 없는 경험이었습니다.",text_ru:"Каждая деталь была выполнена с такой заботой. Приватный рассвет у Тадж-Махала — только наша семья и утренний туман — это то, что я никогда не забуду.",name:'Sarah Mitchell',loc:'London, UK',avatar:'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"Our custom Kerala trip was flawless. The houseboat, the spice plantation, the Ayurvedic retreat — perfectly paced and utterly serene.",text_es:"Nuestro viaje a Kerala fue impecable. La casa flotante, el tour de especias — perfectamente equilibrado.",text_fr:"Notre voyage personnalisé au Kerala était parfait. La péniche, la plantation d'épices — parfaitement rythmés.",text_de:"Unsere Kerala-Reise war tadellos. Das Hausboot, die Gewürzplantage — perfekt.",text_it:"Il nostro viaggio personalizzato in Kerala è stato impeccabile. La houseboat, la piantagione di spezie, il ritiro ayurvedico — perfettamente calibrati e assolutamente sereni.",text_pt:"Nossa viagem personalizada a Kerala foi impecável. A houseboat, a plantação de especiarias, o retiro ayurvédico — perfeitamente ritmados e completamente serenos.",text_ja:"カスタムのケララ旅行は完璧でした。ハウスボート、スパイス農園、アーユルヴェーダのリトリート。すべてが完璧なペースで、とても穏やかでした。",text_zh:"我们的定制喀拉拉之旅无可挑剔。船屋、香料种植园和阿育吠陀疗养地，节奏完美，宁静至极。",text_ar:"كانت رحلتنا المخصصة إلى كيرلا بلا عيب. القارب السكني، مزرعة التوابل، وملاذ الأيورفيدا — كانت متوازنة تمامًا وساحرة.",text_hi:"हमारी कस्टम केरल यात्रा बेदाग थी। हाउसबोट, मसाला बाग़, आयुर्वेदिक रिट्रीट — सब कुछ बिल्कुल ठीक और बेहद शांत था।",text_ko:"우리의 맞춤 케랄라 여행은 흠잡을 데 없었습니다. 하우스보트, 향신료 농장, 아유르베다 리트릿 — 완벽한 속도와 완전히 평온했습니다.",text_ru:"Наш индивидуальный тур по Керале был безупречен. Хаусбот, плантация специй, аюрведический ретрит — идеально выстроено и совершенно спокойно.",name:'Marco Bianchi',loc:'Milan, Italy',avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"As solo travellers, safety was our priority. Vāyu's 24/7 support gave us total confidence. India changed our lives permanently.",text_es:"Como viajeras solas, la seguridad era nuestra prioridad. El apoyo de Vāyu nos dio total confianza. India cambió nuestras vidas.",text_fr:"Comme voyageuses seules, la sécurité était notre priorité. Le soutien 24/7 de Vāyu nous a donné une confiance totale.",text_de:"Als Alleinreisende war Sicherheit unsere Priorität. Vāyus 24/7-Support gab uns totales Vertrauen.",text_it:"Come viaggiatrici solitarie, la sicurezza era la nostra priorità. Il supporto 24/7 di Vāyu ci ha dato totale fiducia. L'India ha cambiato le nostre vite.",text_pt:"Como viajantes solo, a segurança era nossa prioridade. O suporte 24/7 da Vāyu nos deu total confiança. A Índia mudou nossas vidas.",text_ja:"一人旅として、安全が最優先でした。Vāyuの24/7サポートが完全な安心感を与えてくれました。インドは私たちの人生を変えました。",text_zh:"作为独自旅行者，安全是我们的首要任务。Vāyu的24/7支持让我们完全放心。印度永久改变了我们的生活。",text_ar:"بصفتنا مسافرات منفردات، كانت السلامة أولويتنا. دعم Vāyu على مدار الساعة أعطانا ثقة كاملة. الهند غيرت حياتنا بشكل دائم.",text_hi:"एकल यात्रियों के रूप में सुरक्षा हमारी प्राथमिकता थी। Vāyu का 24/7 समर्थन हमें पूरी आत्मविश्वास देता है। भारत ने हमारी जिंदगी हमेशा के लिए बदल दी।",text_ko:"혼자 여행하는 우리에게 안전이 최우선이었습니다. Vāyu의 24/7 지원은 우리에게 완전한 신뢰를 주었습니다. 인도는 우리의 삶을 영원히 바꿨습니다.",text_ru:"Как одиночные путешественницы, безопасность была нашим приоритетом. Круглосуточная поддержка Vāyu дала нам полное спокойствие. Индия навсегда изменила наши жизни.",name:'Akane Suzuki',loc:'Tokyo, Japan',avatar:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"The Rajasthan circuit was breathtaking. Jaisalmer under the stars, Udaipur at sunset — our guide Ravi was simply extraordinary.",text_es:"El circuito de Rajastán fue impresionante. Jaisalmer bajo las estrellas — nuestro guía Ravi fue extraordinario.",text_fr:"Le circuit Rajasthan était époustouflant. Notre guide Ravi était extraordinaire.",text_de:"Der Rajasthan-Rundkurs war atemberaubend. Unser Guide Ravi war außergewöhnlich.",text_it:"Il circuito del Rajasthan era mozzafiato. Jaisalmer sotto le stelle, Udaipur al tramonto — la nostra guida Ravi è stata straordinaria.",text_pt:"O circuito de Rajasthan foi impressionante. Jaisalmer sob as estrelas, Udaipur ao pôr do sol — nosso guia Ravi foi simplesmente extraordinário.",text_ja:"ラジャスタンの周遊は息をのむほどでした。星空の下のジャイサルメール、夕日のウダイプル — ガイドのラヴィは本当に素晴らしかったです。",text_zh:"拉贾斯坦线路令人屏息。星空下的杰伊瑟尔梅尔，日落时的乌代布尔——我们的导游拉维简直太棒了。",text_ar:"كانت الجولة في راجستان ساحرة. جيسالمير تحت النجوم، أودايبور عند الغروب — كان دليلنا رافي ببساطة استثنائياً.",text_hi:"राजस्थान सर्किट शानदार था। सितारों के नीचे जैसलमेर, सूर्यास्त पर उदयपुर — हमारा गाइड रवि असाधारण था।",text_ko:"라자스탄 투어는 숨이 멎을 듯했습니다. 별빛 아래 자이살메르, 일몰의 우대푸르 — 우리의 가이드 라비는 정말 탁월했습니다.",text_ru:"Маршрут по Раджастану был захватывающим. Джайсалмер под звездами, Удайпур на закате — наш гид Рави был просто потрясающим.",name:'Charlotte Dupont',loc:'Paris, France',avatar:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"A seamless corporate incentive trip for 80 people across three cities. Logistics, venues, experiences — all perfectly orchestrated.",text_es:"Viaje de incentivo para 80 personas en tres ciudades. Todo perfectamente organizado.",text_fr:"Voyage d'incentive pour 80 personnes dans trois villes, parfaitement orchestré.",text_de:"Nahtloser Incentive-Trip für 80 Personen in drei Städten.",text_it:"Un viaggio incentive impeccabile per 80 persone in tre città. Logistica, sedi ed esperienze — tutto perfettamente orchestrato.",text_pt:"Uma viagem de incentivo impecável para 80 pessoas em três cidades. Logística, locais, experiências — tudo perfeitamente orquestrado.",text_ja:"80名のためのシームレスなインセンティブ旅行。物流、会場、体験――すべてが完璧に調整されていました。",text_zh:"一场为80人跨三城举办的无缝激励旅行。后勤、场地、体验——一切都完美协调。",text_ar:"رحلة حوافز سلسة لـ80 شخصاً عبر ثلاث مدن. اللوجستيات، الأماكن، التجارب — كلها منسقة بشكل مثالي.",text_hi:"80 लोगों के लिए तीन शहरों में निर्बाध प्रोत्साहन यात्रा। लॉजिस्टिक्स, स्थान, अनुभव — सब कुछ पूरी तरह से संगठित।",text_ko:"80명을 위한 세 도시 간 매끄러운 인센티브 여행. 물류, 장소, 경험 — 모두 완벽하게 조직되었습니다.",text_ru:"Бесшовная корпоративная поездка для 80 человек по трём городам. Логистика, площадки, впечатления — всё идеально скоординировано.",name:'James Park',loc:'Singapore',avatar:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"Our family felt supported from the first enquiry through our farewell dinner. Every local detail was perfectly timed and made the trip feel effortless.",text_es:"Nuestra familia se sintió apoyada desde la primera consulta hasta la cena de despedida. Cada detalle local estuvo perfectamente coordinado.",name:'Nina Patel',loc:'Mumbai, India',avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"The culinary experiences were the highlight. From street snacks to fine dining, everything was fresh, thoughtful, and deeply memorable.",text_es:"Las experiencias culinarias fueron lo mejor. Desde bocados callejeros hasta alta cocina, todo estuvo fresco, pensado y muy memorable.",name:'Carlos Mendes',loc:'Lisbon, Portugal',avatar:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"We loved how each day balanced relaxation and discovery. The itinerary never felt rushed, and the local guides were exceptional.",text_es:"Nos encantó cómo cada día equilibraba relajación y descubrimiento. El itinerario nunca se sintió apresurado y los guías locales fueron excepcionales.",name:'Hannah Berger',loc:'Berlin, Germany',avatar:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"Booking was effortless, and the whole team handled every question with warmth and speed. Our India journey exceeded every expectation.",text_es:"La reserva fue sin esfuerzo y todo el equipo respondió cada pregunta con calidez y rapidez. Nuestro viaje a India superó todas las expectativas.",name:'Mia Wang',loc:'Shanghai, China',avatar:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&q=80&fit=crop&crop=face'},
+  {text_en:"The cultural experiences felt authentic, not staged. It was a true immersion into local life, and we still talk about it every week.",text_es:"Las experiencias culturales se sintieron auténticas, no montadas. Fue una inmersión verdadera en la vida local.",name:'Omar Khalid',loc:'Dubai, UAE',avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop&crop=face'},
+];
+
+const TEAM=[
+  {name:'Arjun Mehta',role_en:'Founder & CEO',img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&fit=crop&crop=faces',bio_en:'A veteran traveller who has explored every state of India, Arjun founded Vāyu with a belief that travel should be transformative, not transactional.',bio_es:'Viajero veterano que ha explorado cada estado de India, Arjun fundó Vāyu con la creencia de que viajar debe ser transformador, no transaccional.',bio_fr:"Voyageur vétéran ayant exploré chaque État de l'Inde, Arjun a fondé Vāyu en croyant que le voyage doit être transformateur, pas transactionnel.",bio_de:'Ein erfahrener Reisender, der jeden indischen Bundesstaat erkundet hat. Arjun gründete Vāyu in der Überzeugung, dass Reisen transformieren, nicht nur abwickeln sollte.',bio_it:"Viaggiatore esperto che ha esplorato ogni stato dell'India, Arjun ha fondato Vāyu con la convinzione che il viaggio debba trasformare, non solo transare.",bio_pt:'Viajante veterano que explorou todos os estados da Índia, Arjun fundou a Vāyu acreditando que viajar deve transformar, não ser apenas transacional.',bio_ja:'インドのすべての州を旅したベテラン旅行者のアルジュンは、旅は取引ではなく変容であるべきだと信じてVāyuを創設しました。',bio_zh:'作为一名探索印度每个邦的资深旅者，Arjun创立了Vāyu，坚信旅行应带来改变，而不是只为交易。',bio_ar:'مسافر مخضرم استكشف كل ولاية في الهند، أسس أرجون Vāyu مؤمناً بأن السفر يجب أن يكون تحولياً وليس معاملة تجارية.',bio_hi:'एक अनुभवी यात्री जिन्होंने भारत के हर राज्य की खोज की, अर्जुन ने Vāyu की स्थापना इस विश्वास के साथ की कि यात्रा लेन-देन नहीं, परिवर्तन होनी चाहिए।',bio_ko:'인도의 모든 주를 탐험한 베테랑 여행가 아르준은 여행은 거래가 아니라 변화여야 한다는 믿음으로 Vāyu를 설립했습니다.',bio_ru:'Ветеран-путешественник, объехавший все штаты Индии, Арджун основал Vāyu, веря, что путешествия должны преобразовывать, а не быть транзакцией.'},
+  {name:'Priya Sharma',role_en:'Head of Itineraries',img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&crop=faces',bio_en:"With 12 years designing luxury journeys, Priya's intricate knowledge of India's hidden corners turns every trip into a carefully composed story.",bio_es:'Con 12 años diseñando viajes de lujo, el conocimiento de Priya sobre los rincones ocultos de India convierte cada viaje en una historia cuidadosamente compuesta.',bio_fr:"Avec 12 ans de création de voyages de luxe, la connaissance fine de Priya des coins cachés de l'Inde transforme chaque voyage en une histoire soignée.",bio_de:'Mit 12 Jahren Erfahrung in der Gestaltung von Luxusreisen verwandelt Priyas detailliertes Wissen über Indiens verborgene Ecken jede Reise in eine sorgfältig komponierte Geschichte.',bio_it:"Con 12 anni nella progettazione di viaggi di lusso, la conoscenza approfondita di Priya degli angoli nascosti dell'India trasforma ogni viaggio in una storia curata.",bio_pt:'Com 12 anos desenhando viagens de luxo, o conhecimento detalhado da Priya sobre os cantos escondidos da Índia transforma cada viagem em uma história cuidadosamente composta.',bio_ja:'ラグジュアリー旅行を12年設計してきたプリヤは、インドの隠れた場所への精密な知識で、すべての旅を丁寧に編まれた物語にします。',bio_zh:'拥有12年奢旅设计经验的Priya，对印度隐秘角落的深刻了解让每次旅行都成为精心编排的故事。',bio_ar:'مع 12 عاماً في تصميم الرحلات الفاخرة، يحول فهم بريا الدقيق للأماكن الخفية في الهند كل رحلة إلى قصة مصاغة بعناية.',bio_hi:'12 वर्षों के लक्ज़री यात्राओं के डिज़ाइन अनुभव के साथ, प्रिय की भारत के छिपे हुए कोनों की गहरी समझ हर यात्रा को एक ध्यानपूर्वक बुनी कहानी में बदल देती है।',bio_ko:'12년간 럭셔리 여정을 설계한 프리야의 인도 숨은 명소에 대한 섬세한 지식은 모든 여행을 정교하게 구성된 이야기로 만듭니다.',bio_ru:'За 12 лет создания роскошных маршрутов глубокое знание Прией скрытых уголков Индии делает каждое путешествие тщательно продуманной историей.'},
+  {name:'Rohan Nair',role_en:'Corporate Travel Lead',img:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&fit=crop&crop=faces',bio_en:'Rohan oversees all MICE and corporate travel, managing groups from 10 to 500 with the same meticulous attention to detail.',bio_es:'Rohan supervisa todos los viajes corporativos y MICE, gestionando grupos de 10 a 500 con el mismo meticuloso cuidado.',bio_fr:"Rohan supervise tous les voyages MICE et d'entreprise, gérant des groupes de 10 à 500 avec le même souci du détail.",bio_de:'Rohan leitet alle MICE- und Geschäftsreisen und betreut Gruppen von 10 bis 500 Personen mit derselben sorgfältigen Detailgenauigkeit.',bio_it:'Rohan supervisiona tutti i viaggi MICE e corporate, gestendo gruppi da 10 a 500 con la stessa cura meticolosa.',bio_pt:'Rohan supervisiona todas as viagens corporativas e MICE, gerenciando grupos de 10 a 500 com o mesmo cuidado meticuloso.',bio_ja:'ローハンはすべてのMICEと法人旅行を監督し、10人から500人のグループを同じ細部へのこだわりで管理します。',bio_zh:'Rohan负责所有MICE和企业旅行，以同样细致的关注管理10至500人的团队。',bio_ar:'يراقب روهان كل السفر المؤسسي وMICE، مديراً مجموعات من 10 إلى 500 شخص بنفس العناية بالتفاصيل.',bio_hi:'रोहन सभी MICE और कॉर्पोरेट यात्रा की निगरानी करते हैं, 10 से 500 तक के समूहों को समान सूक्ष्म ध्यान के साथ प्रबंधित करते हैं।',bio_ko:'로한은 모든 MICE 및 기업 여행을 총괄하며 10명에서 500명까지 그룹을 동일한 세심한 주의로 관리합니다.',bio_ru:'Рохан курирует все MICE и корпоративные поездки, управляя группами от 10 до 500 человек с тем же тщательным вниманием к деталям.'},
+  {name:'Kavya Iyer',role_en:'Guest Experience',img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80&fit=crop&crop=faces',bio_en:'Kavya ensures every guest feels personally looked after — from pre-trip planning calls to the moment they land back home.',bio_es:'Kavya asegura que cada huésped se sienta atendido personalmente, desde las llamadas de planificación hasta el momento en que aterrizan de regreso a casa.',bio_fr:'Kavya veille à ce que chaque client se sente pris en charge personnellement, des appels de planification au retour à la maison.',bio_de:'Kavya sorgt dafür, dass sich jeder Gast persönlich betreut fühlt — von den Planungsgesprächen bis zur Landung zu Hause.',bio_it:"Kavya si assicura che ogni ospite si senta seguito personalmente — dalle chiamate di pianificazione al momento dell'atterraggio a casa.",bio_pt:'Kavya garante que cada hóspede se sinta cuidado pessoalmente — desde as chamadas de planejamento até o momento do retorno para casa.',bio_ja:'カヴィヤは、出発前の計画電話から帰国後の着陸まで、すべてのゲストが個別に大切にされていると感じられるようにします。',bio_zh:'Kavya确保每位客人都感到被个人关照——从行程规划电话到回家落地那一刻。',bio_ar:'تضمن كافيا أن يشعر كل ضيف بأنه مُعتنى به شخصياً — من مكالمات التخطيط قبل الرحلة إلى لحظة عودتهم إلى الوطن.',bio_hi:'काव्या सुनिश्चित करती हैं कि हर मेहमान व्यक्तिगत रूप से देखभाल महसूस करे — यात्रा पूर्व योजना कॉल से लेकर घर वापसी तक।',bio_ko:'카비야는 여행 전 계획 통화부터 귀국 순간까지 모든 손님이 개인적으로 돌봄을 받는다고 느끼도록 합니다.',bio_ru:'Кавья заботится о том, чтобы каждый гость чувствовал себя лично окружённым заботой — от звонков планирования до приземления дома.'},
+  {name:'Vikram Singh',role_en:'Head Guide, Rajasthan',img:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80&fit=crop&crop=faces',bio_en:'Born in Jaipur, Vikram knows every fort, every palace, every jewel hidden in the Thar Desert. He has been guiding for 18 years.',bio_es:'Nacido en Jaipur, Vikram conoce cada fortaleza, cada palacio y cada joya escondida en el desierto de Thar. Lleva 18 años guiando.',bio_fr:'Né à Jaipur, Vikram connaît chaque fort, chaque palais et chaque trésor caché du désert du Thar. Il guide depuis 18 ans.',bio_de:'In Jaipur geboren, kennt Vikram jede Festung, jeden Palast und jedes verborgene Juwel in der Thar-Wüste. Er führt seit 18 Jahren.',bio_it:'Nato a Jaipur, Vikram conosce ogni forte, ogni palazzo e ogni gioiello nascosto nel deserto del Thar. Guida da 18 anni.',bio_pt:'Nascido em Jaipur, Vikram conhece cada forte, cada palácio e cada joia escondida no deserto de Thar. Ele guia há 18 anos.',bio_ja:'ジャイプール出身のヴィクラムは、タール砂漠の要塞や宮殿、隠れた宝物をすべて知っています。ガイド歴18年です。',bio_zh:'出生于斋浦尔的Vikram知道塔尔沙漠中每座堡垒、每座宫殿、每件隐藏的珍宝。他已有18年导游经验。',bio_ar:'ولد في جايبور، يعرف فيكرام كل قلعة وكل قصر وكل جوهرة مخفية في صحراء ثار. يعمل كدليل منذ 18 عاماً.',bio_hi:'जयपुर में जन्मे विक्रम थार मरुस्थल की हर क़िले, हर महल, हर छुपे हुए रत्न को जानते हैं। वे 18 वर्षों से मार्गदर्शन कर रहे हैं।',bio_ko:'자이푸르 출신인 빅람은 타르 사막의 모든 요새, 궁전, 숨겨진 보석을 알고 있습니다. 그는 18년 동안 가이드를 해왔습니다.',bio_ru:'Родом из Джайпура, Викрам знает каждую крепость, каждый дворец и каждое скрытое сокровище в пустыне Тар. Он ведёт экскурсии уже 18 лет.'},
+  {name:'Deepa Menon',role_en:'Kerala Specialist',img:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=80&fit=crop&crop=faces',bio_en:'A Kerala native fluent in six languages, Deepa crafts Ayurvedic retreat itineraries and backwater journeys that feel genuinely local.',bio_es:'Nativa de Kerala y fluida en seis idiomas, Deepa crea itinerarios de retiros ayurvédicos y paseos por los backwaters que se sienten genuinamente locales.',bio_fr:'Originaire du Kerala et maîtrisant six langues, Deepa conçoit des itinéraires de retraite ayurvédique et de backwaters qui paraissent vraiment locaux.',bio_de:'Als gebürtige Keralesin, die sechs Sprachen spricht, gestaltet Deepa Ayurveda-Retreats et Backwater-Reisen, die echt lokal wirken.',bio_it:'Originaria del Kerala e fluente in sei lingue, Deepa crea itinerari di ritiri ayurvedici e viaggi nelle backwaters dal tocco autentico.',bio_pt:'Natural de Kerala e fluente em seis idiomas, Deepa cria roteiros de retiros ayurvédicos e viagens pelos backwaters com toque genuinamente local.',bio_ja:'ケーララ出身で6言語に堪能なディーパは、本当に地元らしいアーユルヴェーダリトリートやバックウォーターの旅程を作ります。',bio_zh:'Deepa是喀拉拉本地人，精通六种语言，她打造的阿育吠陀疗养和回水之旅充满当地风情。',bio_ar:'ديبا من كيرالا وتتقن ست لغات، تصمم برامج ريتريت أيورفيدا ورحلات بين الممرات المائية بطابع محلي أصيل.',bio_hi:'केरल की मूल निवासी, जो छह भाषाओं में पारंगत हैं, दीपा ऐसे आयुर्वेदिक रिट्रीट और बैकवॉटर यात्रा तैयार करती हैं जो सच में स्थानीय अनुभव देते हैं।',bio_ko:'케랄라 출신으로 여섯 언어에 능통한 디파는 진정으로 지역적인 아유르베다 리트릿과 백워터 여행을 기획합니다.',bio_ru:'Коренная жительница Кералы, свободно говорящая на шести языках, Дипа создаёт аюрведические ретриты и поездки по бэквотерам, которые кажутся по-настоящему местными.'},
+  {name:'Ankit Chaturvedi',role_en:'Adventure & Trekking',img:'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=600&q=80&fit=crop&crop=faces',bio_en:'UIAA-certified mountaineer and Himalaya trek leader with 14 summits to his name — and a talent for making beginners feel fearless.',bio_es:'Montañista certificado UIAA y líder de trekking en el Himalaya con 14 cumbres. Tiene talento para que los principiantes se sientan intrépidos.',bio_fr:'Alpiniste certifié UIAA et guide de trek himalayen avec 14 sommets à son actif — et un don pour rassurer les débutants.',bio_de:'UIAA-zertifizierter Bergsteiger und Himalaya-Trekkingführer mit 14 Gipfeln — und dem Talent, Anfänger mutig zu machen.',bio_it:"Alpinista certificato UIAA e guida trekking dell'Himalaya con 14 vette al suo attivo — e il talento di far sentire i principianti senza paura.",bio_pt:'Alpinista certificado UIAA e líder de trekking no Himalaia com 14 cumes — e um talento para fazer os iniciantes se sentirem destemidos.',bio_ja:'UIAA認定の登山家で14座の登頂実績を持つヒマラヤトレックリーダー。初心者が恐れを感じないようにする才能があります。',bio_zh:'UIAA认证的登山家和喜马拉雅徒步领队，拥有14次登顶经验，并擅长让初学者充满自信。',bio_ar:'متسلق معتمد من UIAA وقائد رحلات هملايا مع 14 قمة باسمه — وموهبة لجعل المبتدئين يشعرون بلا خوف.',bio_hi:'UIAA प्रमाणित पर्वतारोही और हिमालय ट्रेक लीडर जिनके नाम 14 शिखर हैं — और शुरुआती यात्रियों को निडर महसूस कराने की क्षमता।',bio_ko:'UIAA 인증 산악인 겸 히말라야 트레킹 리더로 14좌를 오른 경력. 초보자도 두려움 없이 느끼게 하는 재능을 지녔습니다.',bio_ru:'Альпинист UIAA и лидер треков в Гималаях с 14 восхождениями на счету — и талантом заставить новичков чувствовать себя бесстрашно.'},
+  {name:'Riya Kapoor',role_en:'Digital & Marketing',img:'https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?w=600&q=80&fit=crop&crop=faces',bio_en:'Riya blends storytelling with strategy, helping Vāyu\'s global audience discover India through photography, video, and social.',bio_es:'Riya combina narrativa con estrategia, ayudando a la audiencia global de Vāyu a descubrir India a través de fotografía, video y redes sociales.',bio_fr:"Riya mêle storytelling et stratégie, aidant le public mondial de Vāyu à découvrir l'Inde via photo, vidéo et social.",bio_de:"Riya verbindet Storytelling mit Strategie und hilft Vāyu's globaler Zielgruppe, Indien durch Foto, Video und Social zu entdecken.",bio_it:"Riya unisce narrazione e strategia, aiutando il pubblico globale di Vāyu a scoprire l'India attraverso foto, video e social.",bio_pt:'Riya mistura narrativa com estratégia, ajudando o público global da Vāyu a descobrir a Índia por meio de fotografia, vídeo e social.',bio_ja:'リヤはストーリーテリングと戦略を融合し、写真・動画・ソーシャルでVāyuのグローバルな視聴者にインドを届けます。',bio_zh:'Riya将故事讲述与策略结合，通过摄影、视频和社交帮助Vāyu的全球受众发现印度。',bio_ar:'ريا تمزج السرد بالاستراتيجية، وتساعد جمهور Vāyu العالمي على اكتشاف الهند عبر التصوير والفيديو ووسائل التواصل.',bio_hi:'रिया कहानी कहने को रणनीति से जोड़ती हैं, फ़ोटोग्राफ़ी, वीडियो और सोशल के जरिए Vāyu के वैश्विक दर्शकों को भारत खोजने में मदद करती हैं।',bio_ko:'리아는 스토리텔링과 전략을 융합해 사진, 영상, 소셜을 통해 Vāyu의 글로벌 관객이 인도를 발견하도록 돕습니다.',bio_ru:'Рия сочетает сторителлинг со стратегией, помогая глобальной аудитории Vāyu открыть Индию через фото, видео и соцсети.'},
+];
+
+const PACKAGES=[
+  {title:'Golden Triangle Classic',days:'7 Days',days_es:'7 Días',days_fr:'7 Jours',days_de:'7 Tage',days_it:'7 Giorni',days_pt:'7 Dias',days_ja:'7日間',days_zh:'7天',days_ar:'7 أيام',days_hi:'7 दिन',days_ko:'7일',days_ru:'7 дней',group:'2–15 pax',group_es:'2–15 personas',group_fr:'2–15 pers.',group_de:'2–15 Pers.',group_it:'2–15 pax',group_pt:'2–15 pax',group_ja:'2–15名',group_zh:'2–15人',group_ar:'2–15 شخصاً',group_hi:'2–15 यात्री',group_ko:'2–15명',group_ru:'2–15 чел.',price:'₹62,000',badge:'Bestseller',badge_es:'Más vendido',badge_fr:'Meilleure vente',badge_de:'Bestseller',badge_it:'Più venduto',badge_pt:'Mais vendido',badge_ja:'ベストセラー',badge_zh:'畅销',badge_ar:'الأكثر مبيعاً',badge_hi:'बेस्टसेलर',badge_ko:'베스트셀러',badge_ru:'Бестселлер',featured:true,img:'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80',desc_en:'Delhi, Agra & Jaipur — the iconic India introduction. Sunrise at Taj Mahal, Amber Fort, and Chandni Chowk street food.',desc_es:'Delhi, Agra y Jaipur — la introducción icónica a India. Amanecer en el Taj Mahal, Amber Fort y comida callejera de Chandni Chowk.',desc_fr:'Delhi, Agra et Jaipur — l\'introduction emblématique à l\'Inde. Lever de soleil au Taj Mahal, Amber Fort et street food de Chandni Chowk.',desc_de:'Delhi, Agra & Jaipur — die ikonische Indien-Einführung. Sonnenaufgang am Taj Mahal, Amber Fort und Straßensnacks in Chandni Chowk.',desc_it:'Delhi, Agra e Jaipur — la classica introduzione all\'India. Alba al Taj Mahal, Amber Fort e street food di Chandni Chowk.',desc_pt:'Delhi, Agra e Jaipur — a introdução icônica à Índia. Nascer do sol no Taj Mahal, Amber Fort e comida de rua em Chandni Chowk.',desc_ja:'デリー、アグラ、ジャイプル — インドの象徴的な入り口。タージマハルの日の出、アンベール城、チャンドニーチョークの屋台飯。',desc_zh:'德里、阿格拉和斋浦尔——印度的经典初印象。泰姬陵日出、琥珀堡、昌德尼乔克街头美食。',desc_ar:'دلهي وأجرا وجايبور — التعريف الأيقوني بالهند. شروق الشمس عند تاج محل، قلعة أمبر، وطعام شارع تشاندني تشوك.',desc_hi:'दिल्ल्ली, आगरा और जयपुर — भारत की परिचित शुरुआत. ताज महल पर सूर्योदय, ऐंबर किला, और चांदनी चौक की स्ट्रीट फूड।',desc_ko:'델리, 아그라, 자이푸르 — 인도의 상징적 소개. 타지마할 일출, 앰버 요새와 찬드니 초크 길거리 음식.',desc_ru:'Дели, Агру и Джайпур — иконическое вступление в Индию. Рассвет у Тадж-Махала, Форт Амбер и уличная еда Чандни Чоук.',includes:['5-star accommodation','Private guide & transport','All entrance fees','Daily breakfast'],includes_es:['Alojamiento 5 estrellas','Guía privado y transporte','Todas las entradas','Desayuno diario'],includes_fr:['Hébergement 5 étoiles','Guide privé et transport','Tous les billets','Petit-déjeuner quotidien'],includes_de:['5-Sterne-Unterkunft','Privater Guide & Transport','Alle Eintrittsgelder','Tägliches Frühstück'],includes_it:['Alloggio 5 stelle','Guida privata e trasporto','Tutti i biglietti','Colazione giornaliera'],includes_pt:['Acomodação 5 estrelas','Guia privado e transporte','Todas as entradas','Café da manhã diário'],includes_ja:['5つ星宿泊','専用ガイドと送迎','すべての入場料','毎日の朝食'],includes_zh:['五星级住宿','私人导游和交通','所有门票','每日早餐'],includes_ar:['إقامة 5 نجوم','مرشد خاص وتنقل','جميع رسوم الدخول','إفطار يومي'],includes_hi:['5-स्टार आवास','निजी गाइड और परिवहन','सभी प्रवेश शुल्क','दैनिक नाश्ता'],includes_ko:['5성급 숙박','전용 가이드 및 교통','모든 입장료','일일 조식'],includes_ru:['Проживание 5 звезд','Личный гид и транспорт','Все входные билеты','Ежедневный завтрак']},
+  {title:'Kerala Immersion',days:'10 Days',days_es:'10 Días',days_fr:'10 Jours',days_de:'10 Tage',days_it:'10 Giorni',days_pt:'10 Dias',days_ja:'10日間',days_zh:'10天',days_ar:'10 أيام',days_hi:'10 दिन',days_ko:'10일',days_ru:'10 дней',group:'2–8 pax',group_es:'2–8 personas',group_fr:'2–8 pers.',group_de:'2–8 Pers.',group_it:'2–8 pax',group_pt:'2–8 pax',group_ja:'2–8名',group_zh:'2–8人',group_ar:'2–8 شخصاً',group_hi:'2–8 यात्री',group_ko:'2–8명',group_ru:'2–8 чел.',price:'₹89,000',badge:'Top Rated',badge_es:'Mejor valorado',badge_fr:'Meilleur classement',badge_de:'Top bewertet',badge_it:'Più apprezzato',badge_pt:'Mais bem avaliado',badge_ja:'高評価',badge_zh:'热门',badge_ar:'الأعلى تقييماً',badge_hi:'शीर्ष रेटेड',badge_ko:'최고 평점',badge_ru:'Лучший рейтинг',featured:false,img:'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=600&q=80',desc_en:'Munnar tea hills, Alleppey\'s houseboat canals and Kovalam beaches. Ayurvedic massage included.',desc_es:'Colinas de té de Munnar, canales en houseboat en Alleppey y playas de Kovalam. Masaje ayurvédico incluido.',desc_fr:"Les collines de thé de Munnar, les canaux d'Alleppey en houseboat et les plages de Kovalam. Massage ayurvédique inclus.",desc_de:'Die Teehöhen von Munnar, die Haussboot-Kanäle von Alleppey und die Strände von Kovalam. Ayurvedische Massage inklusive.',desc_it:"Le colline del tè di Munnar, i canali in houseboat di Alleppey e le spiagge di Kovalam. Massaggio ayurvedico incluso.",desc_pt:'As colinas de chá de Munnar, os canais de houseboat em Alleppey e as praias de Kovalam. Massagem ayurvédica incluída.',desc_ja:'ムンナルの茶畑、アラッピーのハウスボート運河、コヴァーラムのビーチ。アーユルヴェーダマッサージ付き。',desc_zh:'穆纳尔的茶园、阿勒佩的船屋运河、科瓦兰的海滩。包含阿育吠陀按摩。',desc_ar:'تلال الشاي في مونار، قنوات هاوس بوت في ألابي، وشواطئ كوفالام. يتضمن مساج أيورفيدا.',desc_hi:'मुन्नार की चाय की पहाड़ियां, अल्लेप्पी के हाउसबोट नहर, और कोवालेम के समुद्र तट. आयुर्वेदिक मालिश शामिल।',desc_ko:'무나르의 차 언덕, 알레피의 하우스보트 운하, 코발람 해변. 아유르베다 마사지 포함.',desc_ru:'Чайные холмы Муннара, каналы хаусбота в Аллепи и пляжи Ковалама. Аюрведический массаж включен.',includes:['Luxury houseboat night','Ayurveda session','Spice plantation tour','Wildlife safari'],includes_es:['Noche en houseboat de lujo','Sesión de Ayurveda','Recorrido por plantación de especias','Safari de vida silvestre'],includes_fr:['Nuit en houseboat de luxe','Séance d\'Ayurveda','Visite de plantation d\'épices','Safari animalier'],includes_de:['Luxuriöse Hausboot-Übernachtung','Ayurveda-Sitzung','Gewürzplantagen-Tour','Wildlife-Safari'],includes_it:['Notte in houseboat di lusso','Sessione di Ayurveda','Tour della piantagione di spezie','Safari nella natura'],includes_pt:['Noite em houseboat de luxo','Sessão de Ayurveda','Passeio em plantação de especiarias','Safári de vida selvagem'],includes_ja:['高級ハウスボート宿泊','アーユルヴェーダセッション','スパイスプランテーションツアー','野生動物サファリ'],includes_zh:['豪华船屋住宿','阿育吠陀课程','香料种植园游','野生动物探险'],includes_ar:['ليلة في هاوس بوت فاخر','جلسة أيورفيدا','جولة في مزرعة التوابل','رحلة سفاري لحياة البرية'],includes_hi:['लक्ज़री हाउसबोट रात','आयुर्वेद सत्र','मसाला बाग टूर','वन्यजीव सफारी'],includes_ko:['럭셔리 하우스보트 숙박','아유르베다 세션','향신료 농장 투어','야생 동물 사파리'],includes_ru:['Ночь на роскошном хаусботе','Сессия Аюрведы','Тур по плантации специй','Сафари по дикой природе']},
+  {title:'Himalayan Trek & Monasteries',days:'14 Days',days_es:'14 Días',days_fr:'14 Jours',days_de:'14 Tage',days_it:'14 Giorni',days_pt:'14 Dias',days_ja:'14日間',days_zh:'14天',days_ar:'14 أيام',days_hi:'14 दिन',days_ko:'14일',days_ru:'14 дней',group:'4–12 pax',group_es:'4–12 personas',group_fr:'4–12 pers.',group_de:'4–12 Pers.',group_it:'4–12 pax',group_pt:'4–12 pax',group_ja:'4–12名',group_zh:'4–12人',group_ar:'4–12 شخصاً',group_hi:'4–12 यात्री',group_ko:'4–12명',group_ru:'4–12 чел.',price:'₹1,15,000',badge:'Adventure',badge_es:'Aventura',badge_fr:'Aventure',badge_de:'Abenteuer',badge_it:'Avventura',badge_pt:'Aventura',badge_ja:'アドベンチャー',badge_zh:'探险',badge_ar:'مغامرة',badge_hi:'रोमांच',badge_ko:'어드벤처',badge_ru:'Приключение',featured:false,img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',desc_en:'Darjeeling tea estates, Sikkim monasteries, and the Sandakphu ridge for Kanchenjunga sunrise views.',desc_es:'Estates de té de Darjeeling, monasterios de Sikkim y la cresta de Sandakphu para ver el amanecer del Kanchenjunga.',desc_fr:'Plantations de thé de Darjeeling, monastères du Sikkim et la crête de Sandakphu pour le lever du soleil sur le Kanchenjunga.',desc_de:'Teeplantagen von Darjeeling, Klöster von Sikkim und der Sandakphu-Grat für den Sonnenaufgang am Kanchenjunga.',desc_it:"Piantagioni di tè di Darjeeling, monasteri del Sikkim e la cresta di Sandakphu per l'alba sul Kanchenjunga.",desc_pt:'Estâncias de chá de Darjeeling, monastérios de Sikkim e a crista de Sandakphu para o nascer do sol no Kanchenjunga.',desc_ja:'ダージリンの茶園、シッキムの修道院、サンダクフゥの尾根で見るカンチェンジュンガの日の出。',desc_zh:'达尔吉林的茶园，锡金的寺院，桑达克弗山脊观看干城章嘉峰日出。',desc_ar:'مزارع الشاي في دارجيلنغ، أديار سيكيم، وجبل ساندكفو لرؤية شروق الشمس على كانشنجونغا.',desc_hi:'दार्जिलिंग की चाय की खालीयाँ, सिक्किम के मठ, और सांडकफू की काया से कंचेनजंका की सुबह देखना।',desc_ko:'다르질링 차 농장, 시킴의 수도원, 샌닥푸 능선에서 보는 간첸중가 일출.',desc_ru:'Чайные плантации Даржиллинга, монастыри Сиккима и гребень Сандакфу для встречи рассвета над Канченджонгой.',includes:['Expert mountain guide','All camping gear','Monastery permits','Emergency support'],includes_es:['Guía de montaña experto','Todo el equipo de campamento','Permisos de monasterio','Soporte de emergencia'],includes_fr:['Guide de montagne expert','Tout le matériel de camping','Permis de monastère','Assistance d\'urgence'],includes_de:['Erfahrener Bergführer','Alle Campingausrüstung','Klostererlaubnisse','Notfallunterstützung'],includes_it:['Guida alpina esperta','Tutta l\'attrezzatura da campeggio','Permessi per monasteri','Supporto d\'emergenza'],includes_pt:['Guia de montanha especialista','Todo o equipamento de acampamento','Permissões de monastério','Suporte de emergência'],includes_ja:['専門登山ガイド','すべてのキャンプ装備','修道院許可','緊急サポート'],includes_zh:['专业登山向导','所有露营装备','寺庙许可','紧急支援'],includes_ar:['دليل جبال خبير','جميع معدات التخييم','تراخيص الأديرة','دعم طارئ'],includes_hi:['विशेषज्ञ पर्वत मार्गदर्शक','सभी कैम्पिंग उपकरण','मठ परमिट','आपातकालीन सहायता'],includes_ko:['전문 산악 가이드','모든 캠핑 장비','수도원 허가','긴급 지원'],includes_ru:['Экспертный горный гид','Все палаточное снаряжение','Разрешения на монастырь','Аварийная поддержка']},
+];
+
+const VALUES=[
+  {icon:'🌿',title_en:'Sustainable Travel',text_en:'We partner with community-based operators and minimize environmental footprint on every journey.'},
+  {icon:'🤝',title_en:'Authentic Connection',text_en:'Beyond sights — curated encounters with local artisans, chefs, and storytellers.'},
+  {icon:'🔒',title_en:'Total Peace of Mind',text_en:'24/7 support, vetted accommodation, and contingency plans so you travel worry-free.'},
+  {icon:'✨',title_en:'Uncompromising Quality',text_en:'Every supplier is personally vetted. Every guide is trained to our gold standard.'},
+];
+
+const CORP=[
+  {icon:'✈️',title_en:'Travel Management',text_en:'End-to-end booking, itinerary management, and 24/7 traveller support for teams of any size.',text_es:'Reservas integrales, gestión de itinerarios y soporte 24/7 para equipos de cualquier tamaño.',text_fr:'Réservation complète, gestion d\'itinéraire et support 24/7 pour des équipes de toutes tailles.',text_de:'End-to-end Buchung, Reiseplanung und 24/7 Support für Teams jeder Größe.',text_it:'Prenotazioni end-to-end, gestione itinerari e supporto 24/7 per team di qualsiasi dimensione.',text_pt:'Reserva de ponta a ponta, gestão de itinerário e suporte 24/7 para equipes de qualquer tamanho.',text_ja:'あらゆる規模のチームに対応する、予約から旅程管理、24時間サポートまで一貫提供。',text_zh:'端到端预订、行程管理和 24/7 差旅支持，适用于任何规模团队。',text_ar:'الحجز الشامل، إدارة المسار، ودعم 24/7 للفرق بجميع الأحجام.',text_hi:'एंड-टू-एंड बुकिंग, यात्रा प्रबंधन और किसी भी आकार की टीम के लिए 24/7 सहायता।',text_ko:'팀 규모에 상관없이 예약부터 일정 관리, 24/7 지원을 제공하는 통합 서비스.',text_ru:'Полное бронирование, управление маршрутом и круглосуточная поддержка для команд любого размера.'},
+  {icon:'🏆',title_en:'Incentive Programs',text_en:'Motivate your team with extraordinary India experiences — we design, deliver, and exceed expectations.',text_es:'Incentiva a tu equipo con experiencias extraordinarias en India — diseñamos, entregamos y superamos expectativas.',text_fr:'Motivez votre équipe avec des expériences extraordinaires en Inde — nous concevons, réalisons et dépassons les attentes.',text_de:'Motivieren Sie Ihr Team mit außergewöhnlichen Indien-Erlebnissen — wir planen, liefern und übertreffen Erwartungen.',text_it:'Motiva il tuo team con esperienze straordinarie in India — progettiamo, realizziamo e superiamo le aspettative.',text_pt:'Incentive sua equipe com experiências extraordinárias na Índia — desenhamos, entregamos e superamos expectativas.',text_ja:'インドでの特別な体験でチームを奮い立たせます。企画から実施、期待以上の成果まで。',text_zh:'用印度非凡体验激励团队——我们设计、执行并超越期待。',text_ar:'حفز فريقك بتجارب استثنائية في الهند — نحن نصمم وننفذ ونتجاوز التوقعات.',text_hi:'भारत में असाधारण अनुभवों से अपनी टीम को प्रेरित करें — हम डिजाइन करते हैं, देते हैं और अपेक्षाओं से ऊपर निकलते हैं।',text_ko:'인도에서 특별한 경험으로 팀에 동기를 부여하세요 — 설계, 제공, 기대 초과까지 모두 맡깁니다.',text_ru:'Мотивируйте команду выдающимися впечатлениями в Индии — мы проектируем, реализуем и превосходим ожидания.'},
+  {icon:'🎪',title_en:'MICE Solutions',text_en:'Meetings, incentives, conferences, and exhibitions across India\'s finest venues.',text_es:'Reuniones, incentivos, conferencias y exposiciones en los mejores espacios de India.',text_fr:'Réunions, incentives, conférences et expositions dans les meilleurs lieux d\'Inde.',text_de:'Meetings, Incentives, Konferenzen und Ausstellungen in Indiens besten Locations.',text_it:'Incontri, incentivi, conferenze ed esposizioni nelle migliori sedi dell\'India.',text_pt:'Reuniões, incentivos, conferências e exposições nos melhores locais da Índia.',text_ja:'インド最高の venues で会議、インセンティブ、コンファレンス、展示会を実現。',text_zh:'在印度最优场地举办会议、奖励旅游、会议和展览。',text_ar:'اجتماعات، حوافز، مؤتمرات ومعارض في أفضل أماكن الهند.',text_hi:'भारत के बेहतरीन स्थलों में मीटिंग्स, इंसेंटिव्स, कॉन्फ्रेंस और प्रदर्शनियाँ।',text_ko:'인도 최고의 장소에서 회의, 인센티브, 컨퍼런스, 전시를 제공합니다.',text_ru:'Встречи, incentы, конференции и выставки в лучших местах Индии.'},
+  {icon:'📊',title_en:'Reporting & Analytics',text_en:'Full spend visibility, traveller tracking, and consolidated invoicing for seamless compliance.',text_es:'Visibilidad total de gastos, seguimiento de viajeros y facturación consolidada para cumplimiento sin fricciones.',text_fr:'Visibilité complète des dépenses, suivi des voyageurs et facturation consolidée pour une conformité fluide.',text_de:'Volle Ausgabentransparenz, Reisenden-Tracking und konsolidierte Abrechnung für reibungslosen Compliance.',text_it:'Visibilità totale delle spese, monitoraggio dei viaggiatori e fatturazione consolidata per conformità senza intoppi.',text_pt:'Visibilidade total de gastos, rastreamento de viajantes e faturação consolidada para conformidade fácil.',text_ja:'支出の完全可視化、旅行者追跡、統合請求でスムーズなコンプライアンスを実現。',text_zh:'全面支出可视化、旅客追踪和合并开票，实现顺畅合规。',text_ar:'رؤية كاملة للنفقات، تتبع المسافرين وفوترة موحدة من أجل امتثال سلس.',text_hi:'खर्च की पूरी पारदर्शिता, यात्रियों का ट्रैकिंग, और संयोजित बिलिंग से निर्बाध अनुपालन।',text_ko:'지출 전환, 여행자 추적, 통합 청구로 원활한 컴플라이언스를 제공합니다.',text_ru:'Полная видимость расходов, отслеживание путешественников и консолидированная отчетность для беспроблемного соответствия.'},
+];
+
+// ─── STATE ──────────────────────────────────────────────────────────────────
+let currentLang='en', currentPage='home', heroIdx=0, testiIdx=0;
+let heroInterval, testiInterval, activeFilter='all';
+
+// ─── HERO SLIDESHOW ─────────────────────────────────────────────────────────
+function renderHero(){
+  const s=document.getElementById('heroSlides'), d=document.getElementById('heroDots');
+  s.innerHTML=HERO_SLIDES.map((h,i)=>`<div class="hero-slide${i===0?' active':''}" style="background-image:url('${h.img}')" aria-label="${h.alt}"></div>`).join('');
+  d.innerHTML=HERO_SLIDES.map((_,i)=>`<div class="hero-dot${i===0?' active':''}" onclick="goHeroSlide(${i})"></div>`).join('');
+  clearInterval(heroInterval);
+  heroInterval=setInterval(()=>goHeroSlide((heroIdx+1)%HERO_SLIDES.length),5500);
+}
+function goHeroSlide(n){
+  heroIdx=n;
+  document.querySelectorAll('.hero-slide').forEach((e,i)=>e.classList.toggle('active',i===n));
+  document.querySelectorAll('.hero-dot').forEach((e,i)=>e.classList.toggle('active',i===n));
+}
+
+// ─── HOME DEST CARDS ─────────────────────────────────────────────────────────
+function renderFeaturedDests(){
+  const t=T[currentLang]||T.en;
+  document.getElementById('destGrid').innerHTML=FEATURED_DEST.map(d=>`
+    <div class="dest-card" onclick="openDestModal('${d.id}')">
+      <div class="dest-bg" style="background-image:url('${d.img}')"></div>
+      <div class="dest-overlay">
+        <span class="dest-tag">${t[d.tag_key]||d.tag_key}</span>
+        <h3 class="dest-name">${d.name}</h3>
+        <p class="dest-blurb">${d['desc_'+currentLang]||d.desc_en}</p>
+        <span class="dest-arrow">${t.dest_discover||'Discover more →'}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─── FULL DESTINATIONS PAGE ───────────────────────────────────────────────────
+const FILTER_CATEGORIES=['all','heritage','nature','adventure','beaches','culture','city'];
+
+function renderDestFilters(){
+  const t=T[currentLang]||T.en;
+  document.getElementById('destFilters').innerHTML=FILTER_CATEGORIES.map(f=>`
+    <button class="filter-btn${activeFilter===f?' active':''}" onclick="filterDests('${f}')">${t['filter_'+f]||f}</button>
+  `).join('');
+}
+
+function renderFullDests(){
+  const t=T[currentLang]||T.en;
+  document.getElementById('destFullGrid').innerHTML=ALL_DESTINATIONS.map(d=>`
+    <div class="dest-full-card${activeFilter!=='all'&&d.category!==activeFilter?' hidden':''}" id="dfc-${d.id}" onclick="openDestModal('${d.id}')">
+      <div class="dfc-img">
+        <div class="dfc-img-bg" style="background-image:url('${d.img}')"></div>
+        <span class="dfc-badge" style="background:${d.color}">${t[d.tag_key]||d.tag_key}</span>
+        <span class="dfc-rating">⭐ ${d.rating}</span>
+      </div>
+      <div class="dfc-body">
+        <div class="dfc-state">${d.state}</div>
+        <h3 class="dfc-title">${d.name}</h3>
+        <p class="dfc-desc">${(d['desc_'+currentLang]||d.desc_en).substring(0,110)}...</p>
+      </div>
+      <div class="dfc-footer">
+        <div class="dfc-meta">
+          <span class="dfc-meta-item">📅 ${d.duration}</span>
+          <span class="dfc-meta-item">🌤 ${translateMonthRange(d.best)}</span>
+        </div>
+        <button class="btn-sm">${t.dest_discover||t.btn_explore||'Explore'}</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterDests(f){
+  activeFilter=f;
+  renderDestFilters();
+  document.querySelectorAll('.dest-full-card').forEach(el=>{
+    const d=ALL_DESTINATIONS.find(x=>'dfc-'+x.id===el.id);
+    el.classList.toggle('hidden', f!=='all' && d && d.category!==f);
+  });
+}
+
+// ─── TRANSLATE MONTH RANGE ───────────────────────────────────────────────────
+function translateMonthRange(monthRange, lang=currentLang){
+  if(!monthRange) return monthRange;
+  const months=monthRange.split(', '); // Handle "Apr–Jun, Sep–Nov"
+  return months.map(range=>{
+    const parts=range.split('–');
+    return parts.map(month=>MONTHS[month.trim()]?.[lang]||month.trim()).join('–');
+  }).join(', ');
+}
+
+// ─── DESTINATION DETAIL MODAL ─────────────────────────────────────────────────
+let currentDestModalId=null;
+function openDestModal(id){
+  currentDestModalId=id;
+  const d=ALL_DESTINATIONS.find(x=>x.id===id);
+  if(!d) return;
+  document.getElementById('destModalBg').style.backgroundImage=`url('${d.img}')`;
+  document.getElementById('destModalState').textContent=d.state;
+  document.getElementById('destModalName').textContent=d.name;
+  document.getElementById('destModalDesc').textContent=d['desc_'+currentLang]||d.desc_en;
+  document.getElementById('destModalHighlights').innerHTML=d.highlights.map(h=>{
+    const label=(HIGHLIGHT_LABELS[h.label]||{})[currentLang]||h.label;
+    let value=(HIGHLIGHT_VALUES[h.val]||{})[currentLang]||h.val;
+    if(h.label==='Best Time') value=translateMonthRange(h.val);
+    return `
+      <div class="dhl-card">
+        <div class="dhl-icon">${h.icon}</div>
+        <div class="dhl-label">${label}</div>
+        <div class="dhl-value">${value}</div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('destModalOverlay').classList.add('open');
+}
+function closeDestModal(){document.getElementById('destModalOverlay').classList.remove('open');currentDestModalId=null;}
+function closeDestModalOutside(e){if(e.target===document.getElementById('destModalOverlay'))closeDestModal();}
+
+// ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
+function renderTestis(){
+  const track=document.getElementById('testiTrack'), dots=document.getElementById('testiDots');
+  track.innerHTML=TESTIMONIALS.map(t=>`
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">${t['text_'+currentLang]||t.text_en}</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="${t.avatar}" alt="${t.name}" loading="lazy"></div>
+        <div><div class="testi-name">${t.name}</div><div class="testi-loc">${t.loc}</div></div>
+      </div>
+    </div>
+  `).join('');
+  const maxIdx = TESTIMONIALS.length - 4;
+  dots.innerHTML=Array.from({length: maxIdx + 1}, (_,i)=>`<div class="testi-dot-btn${i===0?' active':''}" onclick="goTesti(${i})"></div>`).join('');
+  testiIdx=0; updateTestiPos();
+  clearInterval(testiInterval);
+  testiInterval=setInterval(()=>testiMove(1),4500);
+}
+function testiMove(dir){
+  const maxIdx = TESTIMONIALS.length - 4;
+  testiIdx = (testiIdx + dir + (maxIdx + 1)) % (maxIdx + 1);
+  goTesti(testiIdx);
+}
+function goTesti(n){
+  const maxIdx = TESTIMONIALS.length - 4;
+  if(n > maxIdx) return;
+  testiIdx=n; updateTestiPos();
+  document.querySelectorAll('.testi-dot-btn').forEach((e,i)=>e.classList.toggle('active',i===n));
+  clearInterval(testiInterval); testiInterval=setInterval(()=>testiMove(1),4500);
+}
+function updateTestiPos(){
+  const track=document.getElementById('testiTrack'), card=track.querySelector('.testi-card');
+  if(!card) return;
+  track.style.transform=`translateX(-${testiIdx*(card.offsetWidth+24)}px)`;
+}
+
+// ─── VALUES ──────────────────────────────────────────────────────────────────
+const VALUE_TITLES={
+  'Sustainable Travel':{es:'Turismo Sostenible',fr:'Voyage Durable',de:'Nachhaltiges Reisen',it:'Turismo Sostenibile',pt:'Turismo Sustentável',ja:'持続可能な旅',zh:'可持续旅行',ar:'السفر المستدام',hi:'सतत यात्रा',ko:'지속 가능한 여행',ru:'Устойчивый туризм'},
+  'Authentic Connection':{es:'Conexión Auténtica',fr:'Connexion Authentique',de:'Authentische Verbindung',it:'Connessione Autentica',pt:'Conexão Autêntica',ja:'本物のつながり',zh:'真实体验',ar:'التواصل الأصيل',hi:'वास्तविक संबंध',ko:'진정한 연결',ru:'Подлинная связь'},
+  'Total Peace of Mind':{es:'Tranquilidad Total',fr:'Tranquillité Totale',de:'Vollständige Sicherheit',it:'Totale Tranquillità',pt:'Tranquilidade Total',ja:'完全な安心',zh:'全程无忧',ar:'راحة البال',hi:'पूर्ण मन की शांति',ko:'완전한 안심',ru:'Полное спокойствие'},
+  'Uncompromising Quality':{es:'Calidad Sin Compromiso',fr:'Qualité Sans Compromis',de:'Kompromisslose Qualität',it:'Qualità Senza Compromessi',pt:'Qualidade Sem Compromisso',ja:'妥協なき品質',zh:'卓越品质',ar:'جودة لا تُضاهى',hi:'अद्वितीय गुणवत्ता',ko:'타협 없는 품질',ru:'Бескомпромиссное качество'},
+};
+const VALUE_TEXTS={
+  'Sustainable Travel':{es:'Colaboramos con operadores locales y minimizamos el impacto ambiental.',fr:"Nous travaillons avec des opérateurs locaux et minimisons l'impact.",de:'Wir arbeiten mit gemeinschaftsbasierten Betreibern zusammen.',it:'Collaboriamo con operatori locali.',pt:'Trabalhamos com operadores locais.',ja:'地域の事業者と連携し、環境への影響を最小化。',zh:'与社区运营商合作，减少环境足迹。',ar:'نتشارك مع مشغلين محليين.',hi:'समुदाय-आधारित संचालकों के साथ साझेदारी।',ko:'지역 운영자와 협력하여 환경 영향 최소화.',ru:'Сотрудничаем с местными операторами.'},
+  'Authentic Connection':{es:'Encuentros con artesanos, chefs y narradores locales.',fr:'Rencontres avec artisans, chefs et conteurs locaux.',de:'Begegnungen mit lokalen Handwerkern und Köchen.',it:'Incontri con artigiani, chef e narratori locali.',pt:'Encontros com artesãos, chefs e narradores locais.',ja:'地元の職人やシェフとの出会い。',zh:'与当地工匠、厨师和故事讲述者的相遇。',ar:'لقاءات مع الحرفيين والطهاة المحليين.',hi:'स्थानीय कारीगरों और शेफ के साथ मुलाकात।',ko:'지역 장인, 셰프와의 만남.',ru:'Встречи с местными ремесленниками и поварами.'},
+  'Total Peace of Mind':{es:'Soporte 24/7 y planes de contingencia para viajar sin preocupaciones.',fr:"Assistance 24/7 et plans d'urgence.",de:'24/7-Support und Notfallpläne.',it:'Supporto 24/7 e piani di emergenza.',pt:'Suporte 24/7 e planos de contingência.',ja:'24時間サポートと緊急対応プラン。',zh:'24/7支持和应急预案。',ar:'دعم على مدار الساعة وخطط طوارئ.',hi:'24/7 सहायता और आकस्मिक योजनाएं।',ko:'24/7 지원과 비상 계획.',ru:'Поддержка 24/7 и планы на непредвиденные ситуации.'},
+  'Uncompromising Quality':{es:'Cada proveedor verificado personalmente.',fr:'Chaque fournisseur vérifié personnellement.',de:'Jeder Anbieter persönlich geprüft.',it:'Ogni fornitore verificato personalmente.',pt:'Cada fornecedor verificado pessoalmente.',ja:'すべての供給者を個人的に審査。',zh:'每位供应商均经过个人审核。',ar:'كل مورد يخضع لفحص شخصي.',hi:'हर आपूर्तिकर्ता की व्यक्तिगत जांच।',ko:'모든 공급업체를 개인적으로 검증.',ru:'Каждый поставщик лично проверен.'},
+};
+
+function renderValues(){
+  document.getElementById('valuesGrid').innerHTML=VALUES.map(v=>`
+    <div class="value-card reveal">
+      <div class="value-icon">${v.icon}</div>
+      <h3 class="value-title">${(VALUE_TITLES[v.title_en]||{})[currentLang]||v.title_en}</h3>
+      <p class="value-text">${(VALUE_TEXTS[v.title_en]||{})[currentLang]||v.text_en}</p>
+    </div>
+  `).join('');
+}
+
+// ─── TEAM ────────────────────────────────────────────────────────────────────
+const TEAM_ROLES={
+  'Founder & CEO':{es:'Fundador y CEO',fr:'Fondateur et PDG',de:'Gründer & CEO',it:'Fondatore e CEO',pt:'Fundador e CEO',ja:'創業者兼CEO',zh:'创始人兼CEO',ar:'المؤسس والرئيس التنفيذي',hi:'संस्थापक और सीईओ',ko:'창업자 겸 CEO',ru:'Основатель и гендиректор'},
+  'Head of Itineraries':{es:'Jefa de Itinerarios',fr:'Responsable Itinéraires',de:'Leiterin Reiseprogramme',it:'Responsabile Itinerari',pt:'Chefe de Roteiros',ja:'旅程部門長',zh:'行程主管',ar:'رئيسة برامج الرحلات',hi:'यात्रा कार्यक्रम प्रमुख',ko:'일정 책임자',ru:'Руководитель маршрутов'},
+  'Corporate Travel Lead':{es:'Líder Corporativo',fr:'Responsable Affaires',de:'Geschäftsreisen-Leiter',it:'Responsabile Aziendale',pt:'Líder Corporativo',ja:'法人旅行リード',zh:'企业旅行负责人',ar:'قائد السفر المؤسسي',hi:'कॉर्पोरेट यात्रा प्रमुख',ko:'기업 출장 리더',ru:'Руководитель корпоративных поездок'},
+  'Guest Experience':{es:'Experiencia del Huésped',fr:'Expérience Client',de:'Gasterlebnis',it:'Esperienza Ospiti',pt:'Experiência do Hóspede',ja:'ゲスト体験',zh:'宾客体验',ar:'تجربة الضيف',hi:'अतिथि अनुभव',ko:'게스트 경험',ru:'Впечатления гостей'},
+  'Head Guide, Rajasthan':{es:'Guía Principal, Rajastán',fr:'Guide Principal, Rajasthan',de:'Hauptführer, Rajasthan',it:'Guida Principale, Rajasthan',pt:'Guia Principal, Rajastão',ja:'チーフガイド、ラジャスタン',zh:'首席导游，拉贾斯坦',ar:'المرشد الرئيسي، راجستان',hi:'मुख्य गाइड, राजस्थान',ko:'수석 가이드, 라자스탄',ru:'Главный гид, Раджастан'},
+  'Kerala Specialist':{es:'Especialista Kerala',fr:'Spécialiste Kerala',de:'Kerala-Spezialist',it:'Specialista Kerala',pt:'Especialista Kerala',ja:'ケーララ専門家',zh:'喀拉拉专家',ar:'متخصص كيرلا',hi:'केरल विशेषज्ञ',ko:'케랄라 전문가',ru:'Специалист по Керале'},
+  'Adventure & Trekking':{es:'Aventura y Trekking',fr:'Aventure et Trekking',de:'Abenteuer & Trekking',it:'Avventura e Trekking',pt:'Aventura e Trekking',ja:'アドベンチャー＆トレッキング',zh:'探险与徒步',ar:'المغامرة والتنزه',hi:'रोमांच और ट्रेकिंग',ko:'어드벤처 & 트레킹',ru:'Приключения и треккинг'},
+  'Digital & Marketing':{es:'Digital y Marketing',fr:'Digital et Marketing',de:'Digital & Marketing',it:'Digitale e Marketing',pt:'Digital e Marketing',ja:'デジタル＆マーケティング',zh:'数字与营销',ar:'الرقمي والتسويق',hi:'डिजिटल और मार्केटिंग',ko:'디지털 & 마케팅',ru:'Диджитал и маркетинг'},
+};
+
+function renderTeam(){
+  document.getElementById('teamGrid').innerHTML=TEAM.map(m=>`
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="${m.img}" alt="${m.name}" loading="lazy">
+        <div class="team-photo-overlay">
+          <p class="team-bio">${m['bio_'+currentLang]||m.bio_en}</p>
+        </div>
+      </div>
+      <div class="team-info">
+        <div class="team-name">${m.name}</div>
+        <div class="team-role">${(TEAM_ROLES[m.role_en]||{})[currentLang]||m.role_en}</div>
+        <div class="team-socials">
+          <a class="team-social" href="#" title="LinkedIn">in</a>
+          <a class="team-social" href="#" title="Instagram">ig</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─── PACKAGES ────────────────────────────────────────────────────────────────
+function renderPackages(){
+  const t=T[currentLang]||T.en;
+  document.getElementById('pkgGrid').innerHTML=PACKAGES.map(p=>`
+    <div class="pkg-card${p.featured?' featured':''}">
+      <div class="pkg-img">
+        <div class="pkg-img-bg" style="background-image:url('${p.img}')"></div>
+        <span class="pkg-badge">${p['badge_'+currentLang]||p.badge}</span>
+      </div>
+      <div class="pkg-body">
+        <h3 class="pkg-title">${p.title}</h3>
+        <div class="pkg-meta"><span>📅 ${p['days_'+currentLang]||p.days}</span><span>👥 ${p['group_'+currentLang]||p.group}</span></div>
+        <p class="pkg-desc">${p['desc_'+currentLang]||p.desc_en}</p>
+        <ul class="include-list">${(p['includes_'+currentLang]||p.includes).map(i=>`<li>${i}</li>`).join('')}</ul>
+      </div>
+      <div class="pkg-footer">
+        <div class="pkg-price">${p.price} <span>/ person</span></div>
+        <button class="btn-sm" onclick="openModal()">${t.nav_book}</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─── CORP CARDS ───────────────────────────────────────────────────────────────
+const CORP_TITLES={'Travel Management':{es:'Gestión de Viajes',fr:'Gestion Voyages',de:'Reisemanagement',it:'Gestione Viaggi',pt:'Gestão Viagens',ja:'旅行管理',zh:'差旅管理',ar:'إدارة السفر',hi:'यात्रा प्रबंधन',ko:'출장 관리',ru:'Управление поездками'},'Incentive Programs':{es:'Incentivos',fr:"Programmes d'Incentive",de:'Incentive-Programme',it:'Programmi Incentive',pt:'Incentivos',ja:'インセンティブ',zh:'激励旅游',ar:'برامج الحوافز',hi:'प्रोत्साहन',ko:'인센티브',ru:'Инсентив'},'MICE Solutions':{es:'Soluciones MICE',fr:'Solutions MICE',de:'MICE',it:'MICE',pt:'MICE',ja:'MICE',zh:'MICE',ar:'MICE',hi:'MICE',ko:'MICE',ru:'MICE'},'Reporting & Analytics':{es:'Análisis',fr:'Rapports',de:'Berichte',it:'Report',pt:'Relatórios',ja:'レポート',zh:'报告分析',ar:'التقارير',hi:'रिपोर्टिंग',ko:'분석',ru:'Аналитика'}};
+function renderCorp(){
+  document.getElementById('corpGrid').innerHTML=CORP.map(c=>`
+    <div class="corp-card reveal">
+      <div class="corp-icon">${c.icon}</div>
+      <h3 class="corp-title">${(CORP_TITLES[c.title_en]||{})[currentLang]||c.title_en}</h3>
+      <p class="corp-text">${c['text_'+currentLang]||c.text_en}</p>
+    </div>
+  `).join('');
+}
+
+// ─── FOOTER DEST LINKS ────────────────────────────────────────────────────────
+function renderFooterLinks(){
+  document.getElementById('footerDestLinks').innerHTML=ALL_DESTINATIONS.slice(0,6).map(d=>`
+    <li><a href="#" onclick="navigate('destinations');filterDests('${d.category}');openDestModal('${d.id}');return false;">${d.name}</a></li>
+  `).join('');
+}
+
+// ─── BOOKING MODAL DEST OPTIONS ──────────────────────────────────────────────
+function renderModalDestOptions(){
+  const sel=document.getElementById('modalDestSelect');
+  sel.innerHTML=ALL_DESTINATIONS.map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
+}
+
+// ─── LANGUAGE ────────────────────────────────────────────────────────────────
+function buildLangMenu(){
+  document.getElementById('langDropdown').innerHTML=LANGUAGES.map(l=>`
+    <div class="lang-option${l.code===currentLang?' active':''}" onclick="setLang('${l.code}')">
+      <span>${l.flag}</span> ${l.label}
+    </div>
+  `).join('');
+}
+function toggleLangMenu(){document.getElementById('langPicker').classList.toggle('open');}
+function setLang(code){
+  currentLang=code;
+  const lang=LANGUAGES.find(l=>l.code===code);
+  document.documentElement.lang=code;
+  document.documentElement.dir=lang.dir;
+  document.getElementById('currentLangLabel').textContent=lang.short;
+  document.getElementById('langPicker').classList.remove('open');
+  applyTranslations();
+  renderFeaturedDests();
+  renderTestis();
+  renderValues();
+  renderTeam();
+  renderPackages();
+  renderCorp();
+  renderDestFilters();
+  renderFullDests();
+  buildLangMenu();
+  if(currentDestModalId) openDestModal(currentDestModalId);
+}
+function applyTranslations(){
+  const t=T[currentLang]||T.en;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(t[k]) el.innerHTML=t[k];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const k=el.getAttribute('data-i18n-placeholder');
+    if(t[k]) el.placeholder=t[k];
+  });
+}
+
+// ─── NAV & ROUTING ────────────────────────────────────────────────────────────
+function navigate(page){
+  currentPage=page;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.nav-link[data-page]').forEach(a=>a.classList.toggle('active',a.getAttribute('data-page')===page));
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(initReveal,100);
+}
+function switchTab(tab){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',['packages','custom','corporate'][i]===tab));
+  document.querySelectorAll('.service-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+function openModal(){document.getElementById('modalOverlay').classList.add('open');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+function closeModalOutside(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
+function toggleMobile(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// ─── SCROLL REVEAL ────────────────────────────────────────────────────────────
+function initReveal(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+
+// ─── INIT ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',()=>{
+  buildLangMenu();
+  renderHero();
+  renderFeaturedDests();
+  renderTestis();
+  renderValues();
+  renderTeam();
+  renderPackages();
+  renderCorp();
+  renderDestFilters();
+  renderFullDests();
+  renderFooterLinks();
+  renderModalDestOptions();
+  applyTranslations();
+  initReveal();
+  window.addEventListener('resize',()=>updateTestiPos());
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('#langPicker'))document.getElementById('langPicker').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
