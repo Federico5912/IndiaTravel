@@ -15,7 +15,19 @@ PageDescriptionHomeHero slideshow, stats bar, featured destinations, testimonial
 
 Languages
 The language switcher (globe icon, top-right) supports 12 languages out of the box. Every visible string — navigation, headings, body copy, form labels, filter buttons — switches instantly with no page reload.
-CodeLanguageenEnglishesEspañolfrFrançaisdeDeutschitItalianoptPortuguêsja日本語zh中文arالعربية (RTL layout auto-applied)hiहिन्दीko한국어ruРусский
+CodeLanguage
+en English
+es Español
+fr Français
+de Deutsch
+it Italiano
+pt Português
+ja 日本語
+zh 中文
+ar العربية (RTL layout auto-applied)
+hi हिन्दी 
+ko 한국어
+ru Русский
 To add a new language, add an entry to the LANGUAGES array and a matching key block in the T object inside index.html. Arabic is the only RTL language included; any new RTL language will automatically inherit the RTL layout because the dir attribute is set on <html> at runtime.
 
 Destinations
