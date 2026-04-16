@@ -73,39 +73,7 @@ Fonts
 Loaded from Google Fonts via a single <link> tag. No font files are bundled.
 FontUseCormorant GaramondAll headings, hero titles, brand nameDM SansBody copy, navigation, labelsNoto Sans JPAuto-applied when Japanese is activeNoto Sans SCAuto-applied when Chinese is activeNoto Sans ArabicAuto-applied when Arabic is activeNoto Sans DevanagariAuto-applied when Hindi is activeNoto Sans KRAuto-applied when Korean is active
 To use self-hosted fonts for better performance, download the font files, place them in a fonts/ folder, and replace the Google Fonts <link> with @font-face declarations.
-
-Deploy to Netlify
-Option A — Drag and drop (fastest)
-
-Go to app.netlify.com
-Add new site → Deploy manually
-Drag vayu-travels-netlify.zip onto the upload area
-Done — you get a live *.netlify.app URL in ~10 seconds
-
 Option B — GitHub (recommended for ongoing work)
-
-Push the contents of netlify-deploy/ to a GitHub repository
-In Netlify: Add new site → Import from Git
-Select the repo — no build command needed, publish directory is .
-Every git push to main triggers an automatic redeploy
-
-Custom domain
-
-Site settings → Domain management → Add custom domain
-Point your registrar's DNS to Netlify's nameservers or add an A record to 75.2.60.5
-Netlify auto-provisions a free SSL certificate via Let's Encrypt within minutes
-
-
-Booking Form
-The enquiry form inside the modal is currently front-end only — it collects data but does not submit anywhere. To wire it up:
-Option 1 — Netlify Forms (zero config)
-Add data-netlify="true" and name="enquiry" to the <div class="modal"> wrapper, wrap the fields in a <form> tag, and Netlify intercepts submissions automatically. View responses in the Netlify dashboard under Forms.
-html<form name="enquiry" method="POST" data-netlify="true">
-  <!-- existing fields -->
-  <button type="submit">Send Enquiry</button>
-</form>
-Option 2 — External service
-Connect the submit button to any service (Formspree, EmailJS, HubSpot, etc.) by posting the field values to their API endpoint in the button's onclick handler.
 
 Performance Notes
 
